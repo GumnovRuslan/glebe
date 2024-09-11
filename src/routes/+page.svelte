@@ -8,24 +8,36 @@
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
 
+  const blocks = [
+    {
+      src: '/images/image1.png'
+    },
+    {
+      src: '/images/image2.webp'
+    },
+    {
+      src: '/images/image1.png'
+    },
+    {
+      src: '/images/image2.webp'
+    },
+  ]
+
   const delay = 1000
   const easing = 'ease-in-out'
 
+  let slideActiveId = 0
+  let blockActiveId = 0
   let mySlider
   let image
-  let ifFixed = false
 
   onMount(() => {
-    // console.log(mySlider.splide.root.childElementCount)
     image = document.querySelector('.image')
     initImage()
   })
 
   function initImage() {
     image.style.transition = `${delay / 1000}s ${easing}`
-  }
-
-  function iamgePosition() {
   }
 </script>
 
@@ -41,16 +53,24 @@
       pagination: false,
     }}
     on:move={e => {
-      // console.log(e.detail.splide.root.id)
-      image.style.top = `${2 - e.detail.index}00vh`
-
-      if(e.detail.index <= 1) {
-        // ifFixed = false
-        // image.style.top = '-33px'
-        
+      const index = e.detail.index
+      const startId = 2
+      const endID = startId + blocks.length
+      slideActiveId = index
+      blockActiveId = (index - startId < 0) 
+      ? 0 
+      : (index - startId > blocks.length-1) 
+      ? blocks.length-1 
+      : index - startId
+      
+      if(index <= 2) {
+        image.style.top = `${startId - index}00vh`
+      } else if(index > startId && index < endID) {
+        image.style.top = `0`
+      } else if(index >= endID) {
+        image.style.top = `${endID - 1 - index}00vh`
       }
     }}
-    
     >
 
     <SplideSlide>
@@ -58,22 +78,14 @@
     </SplideSlide>
 
     <SplideSlide>
-      <About />
+      <About active={slideActiveId == 1}/>
     </SplideSlide>
 
-    <SplideSlide>
-      <div class="first">
-        <Block/>
-      </div>
-    </SplideSlide>
-
-    <SplideSlide>
-      <Block/>
-    </SplideSlide>
-
-    <SplideSlide>
-      <Block/>
-    </SplideSlide>
+    {#each blocks as el, i}
+      <SplideSlide>
+        <Block active={blockActiveId == i}/>
+      </SplideSlide>
+    {/each}
 
     <SplideSlide>
       <About />
@@ -81,17 +93,61 @@
 
   </Splide>
 
-  <div class="image {ifFixed ? 'fixed' : 'absolute'}">
-
+  <div class="image">
+    <div class="image__wrapper">
+      {#each blocks as el, i}
+        <img class="image__inner {blockActiveId == i ? 'image--active' : ''}" src={el.src} alt="image {i}">
+      {/each}
+    </div>
   </div>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
+
   .image {
     position: fixed;
     top: 1000%;
+    left: 50px;
     transform: translateY(calc(50vh - 50%));
-    width: 400px;
-    aspect-ratio: 1/1;
-    background: red; 
+    width: 500px;
+    aspect-ratio: 1.5/1;
+    pointer-events: none;
+
+    @include media-breakpoint-between(md, lg) {
+      left: 20px;
+      max-width: 400px;
+    }
+
+    @include media-breakpoint-down(md) {
+      transform: translateY(calc(100px)) translateX(-50%);
+      left: 50%;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    &__wrapper {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &__inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 1s;
+      opacity: 0;
+      transform: scale(100%);
+      
+    }
+
+    &--active {
+      opacity: 1;
+      z-index: 1;
+      transform: scale(110%);
+    }
   }
 </style>

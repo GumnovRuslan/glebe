@@ -12,7 +12,8 @@
 </div>
 
 
-<style>
+<style lang="scss">
+  @import '/static/styles/mixins.scss';
   .wrapper {
     position: relative;
   }

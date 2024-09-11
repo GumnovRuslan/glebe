@@ -17,6 +17,7 @@
 </footer>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .footer {
     position: fixed;
     bottom: 0;
@@ -26,13 +27,20 @@
     &__inner {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
       gap: 20px;
       padding: 10px;
       border-radius: 50px;
       box-shadow: 0 0 5px #fff;
       background: #00000098;
       backdrop-filter: blur(5px);
+
+      @include media-breakpoint-up(md) {
+        justify-content: flex-end;
+      }
+
+      @include media-breakpoint-down(md) {
+        justify-content: space-evenly;
+      }
     }
 
     &__icon {

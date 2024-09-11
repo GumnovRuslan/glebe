@@ -9,9 +9,6 @@
       <p class="about__description">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum perspiciatis ullam recusandae porro, iure harum at tempore, possimus cumque praesentium repudiandae fugit aperiam, facere ipsum quasi veniam soluta asperiores est?
       </p>
-      <p class="about__description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum perspiciatis ullam recusandae porro, iure harum at tempore, possimus cumque praesentium repudiandae fugit aperiam, facere ipsum quasi veniam soluta asperiores est?
-      </p>
     </div>
   </div>
 </section>
@@ -19,6 +16,7 @@
 <style lang="scss">
   .about {
     position: relative;
+    
     &__inner {
       display: flex;
       align-items: center;

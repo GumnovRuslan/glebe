@@ -21,13 +21,14 @@
       min-height: 60px;
       padding: 10px 20px;
       border-radius: 50px;
-      background: #000;
+      box-shadow: 0 0 5px #fff;
+      background: #00000098;
+      backdrop-filter: blur(5px);
     }
 
     &__logo {
       font-weight: 700;
       font-size: 30px;
-      
       text-transform: uppercase;
       color: #fff;
     }

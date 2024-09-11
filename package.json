@@ -27,6 +27,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@splidejs/splide-extension-grid": "^0.4.1",
+		"@splidejs/svelte-splide": "^0.2.9",
 		"sass": "^1.78.0"
 	}
 }

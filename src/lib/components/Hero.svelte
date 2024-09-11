@@ -3,8 +3,8 @@
 </script>
 
 <section class="hero">
-  <div class="hero__backgroud">
-    <img class="hero__backgroud_img" src="/images/glebe_hp.webp" alt="backgroud">
+  <div class="hero__background">
+    <img class="hero__background_img" src="/images/glebe_hp.webp" alt="background">
   </div>
 </section>
 
@@ -13,7 +13,7 @@
     position: relative;
     min-height: 100vh;
 
-    &__backgroud {
+    &__background {
       position: absolute;
       left: 0;
       top: 0;
@@ -22,7 +22,7 @@
       min-height: 100vh;
     } 
 
-    &__backgroud_img {
+    &__background_img {
       object-fit: cover;
     }
   }

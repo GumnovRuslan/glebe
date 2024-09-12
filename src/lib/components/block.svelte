@@ -15,9 +15,9 @@
     align-items: center;
     justify-content: end;
     padding: 20px;
-    min-height: 100vh;
+    min-height: 50vh;
     color: #fff;
-    opacity: 0;
+    opacity: 0.2;
     transition: 1s;
 
     @include media-breakpoint-down(md) {

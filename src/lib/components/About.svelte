@@ -3,7 +3,7 @@
 </script>
 
 <section class="about">
-  <div class="about__top {active ? 'about__top--active' : ''}"></div>
+  <!-- <div class="about__top {active ? 'about__top--active' : ''}"></div> -->
   <div class="about__inner">
     <div class="about__content">
       <h2 class="about__title">About</h2>
@@ -18,7 +18,6 @@
   @import '/static/styles/mixins.scss';
   .about {
     position: relative;
-    
 
     &__top {
       position: absolute;

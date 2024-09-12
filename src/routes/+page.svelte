@@ -1,8 +1,6 @@
 <script>
   import Hero from "../lib/components/Hero.svelte";
   import About from "../lib/components/About.svelte";
-  import Scrolling from "../lib/components/Scrolling.svelte";
-  import Slider from "../lib/components/Slider.svelte";
   import Block from "../lib/components/block.svelte";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
@@ -51,11 +49,13 @@
       wheel    : true,
       arrows: false,
       pagination: false,
+      focus    : 'center',
     }}
     on:move={e => {
       const index = e.detail.index
       const startId = 2
-      const endID = startId + blocks.length
+      const endId = startId + blocks.length
+      const slides = e.detail.splide.root.firstElementChild.querySelectorAll('.splide__slide')
       slideActiveId = index
       blockActiveId = (index - startId < 0) 
       ? 0 
@@ -63,12 +63,12 @@
       ? blocks.length-1 
       : index - startId
       
-      if(index <= 2) {
+      if(index <= startId) {
         image.style.top = `${startId - index}00vh`
-      } else if(index > startId && index < endID) {
+      } else if(index > startId && index < endId) {
         image.style.top = `0`
-      } else if(index >= endID) {
-        image.style.top = `${endID - 1 - index}00vh`
+      } else if(index >= endId) {
+        image.style.top = `${endId -1 - index}00vh`
       }
     }}
     >
@@ -88,7 +88,7 @@
     {/each}
 
     <SplideSlide>
-      <About />
+      <About active={slideActiveId == 6}/>
     </SplideSlide>
 
   </Splide>
@@ -104,9 +104,23 @@
 <style lang="scss">
   @import '/static/styles/mixins.scss';
 
+  .text {
+    margin-top: 100px;
+    padding: 50px 20px;
+    background: #000;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+    & p {
+      font-size: 26px;
+      line-height: 36px;
+      color: #fff;
+    }
+  }
+
   .image {
     position: fixed;
-    top: 1000%;
+    top: 200vh;
     left: 50px;
     transform: translateY(calc(50vh - 50%));
     width: 500px;

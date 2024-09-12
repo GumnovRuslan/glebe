@@ -2,17 +2,18 @@
 
 </script>
 
-<section class="hero">
-  <div class="hero__background">
-    <img class="hero__background_img" src="/images/glebe_hp.webp" alt="background">
+<section class="text">
+  <div class="text__background">
+    <img class="text__background_img" src="/images/glebe_hp.webp" alt="background">
   </div>
-  <div class="hero__content">
-    <p class="hero__title">A game where every strike brings gold</p>
+  <div class="text__content">
+    <p class="text__title">Gameplay:</p>
+    <p class="text__text">Glebe transports players to an immersive gold rush universe where each participant chooses their unique role and interacts with in-game assets to generate cryptocurrency profits. Players can become explorers, landlords or large-scale owners, creating a unique ecosystem where the economy is player-driven and hardened by real value through NFT.</p>
   </div>
 </section>
 
 <style lang="scss">
-  .hero {
+  .text {
     position: relative;
     min-height: 100vh;
 
@@ -32,7 +33,10 @@
       font-weight: 700;
       color: #ffffff;
       text-shadow: 0 0 10px #000;
+    }
 
+    &__text {
+      color: #ffffff;
     }
 
     &__background {

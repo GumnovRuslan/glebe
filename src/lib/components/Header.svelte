@@ -17,9 +17,9 @@
     &__inner {
       display: flex;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       min-height: 60px;
-      padding: 10px 20px;
+      padding: 10px 40px;
       border-radius: 50px;
       box-shadow: 0 0 5px #fff;
       background: #00000098;
@@ -28,7 +28,8 @@
 
     &__logo {
       font-weight: 700;
-      font-size: 30px;
+      font-size: 40px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #fff;
     }

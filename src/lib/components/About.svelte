@@ -6,9 +6,9 @@
   <!-- <div class="about__top {active ? 'about__top--active' : ''}"></div> -->
   <div class="about__inner">
     <div class="about__content">
-      <h2 class="about__title">About</h2>
-      <p class="about__description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum perspiciatis ullam recusandae porro, iure harum at tempore, possimus cumque praesentium repudiandae fugit aperiam, facere ipsum quasi veniam soluta asperiores est?
+      <h2 class="about__title {active ? 'about__title--active' : ''}">About</h2>
+      <p class="about__description {active ? 'about__description--active' : ''}">
+        Glebe is a world where every handful of earth can turn into a golden nugget, and every action brings you closer to true wealth. Here, in the era of a new gold rush, users compete for resources, explore lands and earn. In Glebe everyone can build their own business empire, combining all the game roles, building new and novel earning strategies to maximize profits. Every object in the game is an NFT with real value, and every move can open the path to riches. It's not just a game - it's your chance to make money in an exciting digital universe!
       </p>
     </div>
   </div>
@@ -69,21 +69,30 @@
       font-weight: 700;
       text-transform: uppercase;
       color: #fff;
+      // transition: 0.5s .5s;
 
       &::before, 
       &::after {
         content: '';
         position: absolute;
-        width: 200px;
+        width: 50px;
         height: 2px;
         top: 50%;
+        transition: 0.8s 0.5s;
         background: currentColor;
       }
       &::before {
         left: 100%;
       }
       &::after {
-      right: 100%;
+        right: 100%;
+      }
+
+      &--active {
+        &::before, 
+        &::after {
+          width: 200px;
+        }
       }
 
       @include media-breakpoint-up(lg) {
@@ -103,6 +112,9 @@
     }
 
     &__description {
+      transition: 1.5s 0.5s;
+      transform: translateY(100px);
+      opacity: 0;
       text-align: center;
       color: #fff;
 
@@ -119,6 +131,11 @@
       @include media-breakpoint-down(md) {
         font-size: 20px;
         line-height: 30px;
+      }
+
+      &--active {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   }

@@ -1,7 +1,7 @@
 <script>
   import Hero from "../lib/components/Hero.svelte";
   import About from "../lib/components/About.svelte";
-  import Block from "../lib/components/block.svelte";
+  import Block from "../lib/components/Block.svelte";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
@@ -32,7 +32,7 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     {
       title: 'Conclusion:',
       description: 'Glebe integrates three powerful market trends - Play2Earn, Telegram as a gaming platform and the TON blockchain - which offers significant opportunities for growth and involvement of an active audience.',
-      src: '/images/image2.webp'
+      src: '/images/image1.png'
     },
   ]
 
@@ -41,10 +41,17 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
 
   let slideActiveId = 0
   let blockActiveId = 0
+  let blockActiveId2 = 0
   let mySlider
   let image
 
   onMount(() => {
+    // scrollHeight children
+    // console.log(mySlider.splide.root.children[0].children[0].children.length )
+    const heightSplider = mySlider.splide.root.children[0].scrollHeight
+    const sliders = mySlider.splide.root.children[0].children[0].children
+    // const maxHeight = sliders.forEach(slider => slider.scrollHeight)
+    console.log(mySlider.splide.Components)
     image = document.querySelector('.image')
     initImage()
   })
@@ -99,10 +106,8 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
 
     {#each blocks as el, i}
       <SplideSlide>
-        {#if i == 0}
-          <p class="title">Market and target audience</p>
-        {/if}
         <Block 
+        id={i}
         active={blockActiveId == i}
         title={el.title}
         description={el.description}
@@ -111,10 +116,19 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     {/each}
 
     <SplideSlide>
-      <Text active={slideActiveId == 7}/>
+      <Text />
     </SplideSlide>
 
-    
+    {#each blocks as el, i}
+      <SplideSlide>
+        <Block 
+        id={i}
+        active={slideActiveId == i}
+        title={el.title}
+        description={el.description}
+        />
+      </SplideSlide>
+    {/each}
 
   </Splide>
 

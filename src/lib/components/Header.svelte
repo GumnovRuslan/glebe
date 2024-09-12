@@ -17,13 +17,8 @@
     &__inner {
       display: flex;
       align-items: center;
-      // justify-content: center;
       min-height: 60px;
       padding: 10px 40px;
-      border-radius: 50px;
-      box-shadow: 0 0 5px #fff;
-      background: #00000098;
-      backdrop-filter: blur(5px);
     }
 
     &__logo {

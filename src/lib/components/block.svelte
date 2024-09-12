@@ -2,38 +2,60 @@
   export let active = false; 
   export let title = ''
   export let description = ''
+  export let id = null
 </script>
 
 <section class="block {active ? 'block--active' : ''}">
   <div class="block__inner">
-    <p class="block__title">{title}</p>
-    <p class="block__text">{description}</p>
+    {#if id == 0}
+      <h2 class="block__title">Market and target audience</h2>
+    {/if}
+    <div class="block__content">
+      <div class="block__card">
+        <p class="block__card_title">{title}</p>
+        <p class="block__card_text">{description}</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <style lang="scss">
   @import '/static/styles/mixins.scss';
   .block {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 20px;
-    min-height: 50vh;
-    color: #fff;
     opacity: 0.2;
-    transition: 1s;
-
-    @include media-breakpoint-down(md) {
-      justify-content: center;
-      padding: 100px 0;
-      align-items: end;
-    }
+    transition: 1s 0.3s;
+    color: #fff;
 
     &--active {
       opacity: 1;
     }
 
     &__inner {
+      padding: 100px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 30px;
+      min-height: 100vh;
+    }
+
+    &__title {
+      width: 100%;
+      font-size: 46px;
+      text-align: center;
+      text-align: center;
+      color: #fff;
+      margin-bottom: -26px;
+    }
+
+    &__content {
+      flex: content;
+      display: flex;
+      align-items: center;
+    }
+
+    &__card {
       display: flex;
       gap: 50px;
 
@@ -41,14 +63,9 @@
         flex-direction: column;
         gap: 20px;
       }
-
-      // @include media-breakpoint-between(md, lg) {
-      //   flex-direction: column;
-      //   gap: 20px;
-      // }
     }
 
-    &__title {
+    &__card_title {
       max-width: 400px;
       align-self: flex-start;
 
@@ -66,7 +83,7 @@
       }
     }
 
-    &__text {
+    &__card_text {
       @include media-breakpoint-up(xl) {
         max-width: 600px;
         font-size: 30px;

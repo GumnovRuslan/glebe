@@ -119,17 +119,6 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
       <Text />
     </SplideSlide>
 
-    {#each blocks as el, i}
-      <SplideSlide>
-        <Block 
-        id={i}
-        active={slideActiveId == i}
-        title={el.title}
-        description={el.description}
-        />
-      </SplideSlide>
-    {/each}
-
   </Splide>
 
   <div class="image">

@@ -1,7 +1,7 @@
 <script>
   import Hero from "../lib/components/Hero.svelte";
   import About from "../lib/components/About.svelte";
-  import Block from "../lib/components/Block.svelte";
+  import Block from "../lib/components/block.svelte";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";

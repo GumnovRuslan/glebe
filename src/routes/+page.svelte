@@ -48,8 +48,8 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
   onMount(() => {
     // scrollHeight children
     // console.log(mySlider.splide.root.children[0].children[0].children.length )
-    const heightSplider = mySlider.splide.root.children[0].scrollHeight
-    const sliders = mySlider.splide.root.children[0].children[0].children
+    // const heightSplider = mySlider.splide.root.children[0].scrollHeight
+    // const sliders = mySlider.splide.root.children[0].children[0].children
     // const maxHeight = sliders.forEach(slider => slider.scrollHeight)
     console.log(mySlider.splide.Components)
     image = document.querySelector('.image')

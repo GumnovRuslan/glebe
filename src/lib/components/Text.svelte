@@ -7,8 +7,10 @@
     <img class="text__background_img" src="/images/glebe_hp.webp" alt="background">
   </div>
   <div class="text__content">
-    <p class="text__title">Gameplay:</p>
-    <p class="text__text">Glebe transports players to an immersive gold rush universe where each participant chooses their unique role and interacts with in-game assets to generate cryptocurrency profits. Players can become explorers, landlords or large-scale owners, creating a unique ecosystem where the economy is player-driven and hardened by real value through NFT.</p>
+    <div class="text__content_wrapper">
+      <p class="text__title">Gameplay:</p>
+      <p class="text__text">Glebe transports players to an immersive gold rush universe where each participant chooses their unique role and interacts with in-game assets to generate cryptocurrency profits. Players can become explorers, landlords or large-scale owners, creating a unique ecosystem where the economy is player-driven and hardened by real value through NFT.</p>
+    </div>
   </div>
 </section>
 
@@ -25,7 +27,19 @@
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      padding: 100px 50px;
+    }
+
+    &__content_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 50px;
+      background: #00000098;
+      backdrop-filter: blur(5px);
     }
 
     &__title {
@@ -36,6 +50,7 @@
     }
 
     &__text {
+      font-size: 30px;
       color: #ffffff;
     }
 

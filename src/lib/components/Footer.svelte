@@ -4,10 +4,10 @@
 
 <footer class="footer">
   <div class="footer__inner">
-    <a href="https://x.com/GlebeComm" class="footer__icon">
+    <a href="https://t.me/glebecommunity" class="footer__icon">
       {@html telegram}
     </a>
-    <a href="https://t.me/glebecommunity" class="footer__icon">
+    <a href="https://x.com/GlebeComm" class="footer__icon">
       {@html twiter}
     </a>
     <a href="mailto:info@glebe.online" class="footer__icon">
@@ -29,10 +29,6 @@
       align-items: center;
       gap: 20px;
       padding: 10px;
-      border-radius: 50px;
-      box-shadow: 0 0 5px #fff;
-      background: #00000098;
-      backdrop-filter: blur(5px);
 
       @include media-breakpoint-up(md) {
         justify-content: flex-end;
@@ -47,13 +43,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 40px;
-      max-height: 40px;
+      max-width: 50px;
+      max-height: 50px;
       padding: 7px;
-      border-radius: 50%;
+      // border-radius: 50%;
       transition: 0.3s;
-      background: #fff;
-      color: #000;
+      // background: #fff;
+      color: #fff;
+      // box-shadow: 0 0 10px #000;
 
       &:hover {
         outline: 1px solid #4073ff;

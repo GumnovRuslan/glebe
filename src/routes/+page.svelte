@@ -5,23 +5,38 @@
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
+  import Text from "../lib/components/Text.svelte";
 
   const blocks = [
     {
+      title: 'Target audience:',
+      description: 'Glebe is aimed at gamers, crypto-enthusiasts and NFT investors aged 18 to 45. These users are actively involved in the development of Play2Earn and blockchain games, and many of them are using Telegram as their primary platform to interact with the crypto community.',
       src: '/images/image1.png'
     },
     {
+      title: 'Market potential:',
+      description: `The GameFi market is projected to reach $19.58 billion by 2024, with a robust compound annual growth rate (CAGR) of 27.7% from 2024 to 2031. This growth is driven by the integration of blockchain technologies, which enhance transparency, trust, and security in gaming environments. GameFi's rise is fueled by the increasing popularity of play-to-earn models, which allow players to earn digital assets and real-world value through in-game activities. The Asia Pacific, North America, and Europe are expected to lead in market revenue, with significant growth opportunities in China, the U.S., and Europe​.
+By 2030, the market could grow exponentially, making GameFi a crucial player in both the gaming and decentralized finance ecosystems.`,
       src: '/images/image2.webp'
     },
     {
+      title: 'The potential of games on the Telegram platform:',
+      description: 'Telegram is one of the fastest-growing platforms in the world and currently has over 1 billion active users. Due to its flexibility, ability to integrate bots and mini-apps, Telegram has become an important tool for crypto-enthusiasts and Play2Earn game developers. The platform is also known for its focus on privacy and decentralization, which attracts both gamers and investors willing to participate in blockchain-based Play2Earn projects.',
       src: '/images/image1.png'
     },
     {
+      title: 'The potential of the TON blockchain:',
+      description: 'The TON (The Open Network) blockchain plays a key role in providing low transaction costs and high performance, making it an ideal technological foundation for games with NFT elements.',
+      src: '/images/image2.webp'
+    },
+    {
+      title: 'Conclusion:',
+      description: 'Glebe integrates three powerful market trends - Play2Earn, Telegram as a gaming platform and the TON blockchain - which offers significant opportunities for growth and involvement of an active audience.',
       src: '/images/image2.webp'
     },
   ]
 
-  const delay = 1000
+  const delay = 800
   const easing = 'ease-in-out'
 
   let slideActiveId = 0
@@ -50,6 +65,7 @@
       arrows: false,
       pagination: false,
       focus    : 'center',
+      waitForTransition: true
     }}
     on:move={e => {
       const index = e.detail.index
@@ -83,13 +99,22 @@
 
     {#each blocks as el, i}
       <SplideSlide>
-        <Block active={blockActiveId == i}/>
+        {#if i == 0}
+          <p class="title">Market and target audience</p>
+        {/if}
+        <Block 
+        active={blockActiveId == i}
+        title={el.title}
+        description={el.description}
+        />
       </SplideSlide>
     {/each}
 
     <SplideSlide>
-      <About active={slideActiveId == 6}/>
+      <Text active={slideActiveId == 7}/>
     </SplideSlide>
+
+    
 
   </Splide>
 
@@ -116,6 +141,12 @@
       line-height: 36px;
       color: #fff;
     }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
   }
 
   .image {

@@ -1,11 +1,14 @@
 <script>
   export let active = false; 
+  export let title = ''
+  export let description = ''
 </script>
 
 <section class="block {active ? 'block--active' : ''}">
-  <p class="block__text">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, fuga earum. Obcaecati sunt excepturi earum maiores molestias necessitatibus omnis autem, cupiditate, deleniti est, alias nostrum perspiciatis voluptate inventore dignissimos? Minima.
-  </p>
+  <div class="block__inner">
+    <p class="block__title">{title}</p>
+    <p class="block__text">{description}</p>
+  </div>
 </section>
 
 <style lang="scss">
@@ -28,6 +31,39 @@
 
     &--active {
       opacity: 1;
+    }
+
+    &__inner {
+      display: flex;
+      gap: 50px;
+
+      @include media-breakpoint-down(xl) {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      // @include media-breakpoint-between(md, lg) {
+      //   flex-direction: column;
+      //   gap: 20px;
+      // }
+    }
+
+    &__title {
+      max-width: 400px;
+      align-self: flex-start;
+
+      @include media-breakpoint-up(xl) {
+        font-size: 40px;
+        text-align: center;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        font-size: 30px;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 30px;
+      }
     }
 
     &__text {

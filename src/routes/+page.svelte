@@ -6,6 +6,8 @@
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
   import Text from "../lib/components/Text.svelte";
+  import Roles from "../lib/components/Roles/Roles.svelte";
+  import ContactUs from "../lib/components/ContactUs.svelte";
 
   const blocks = [
     {
@@ -36,7 +38,7 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     },
   ]
 
-  const delay = 800
+  const delay = 1000
   const easing = 'ease-in-out'
 
   let slideActiveId = 0
@@ -45,13 +47,41 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
   let mySlider
   let image
 
+  function handleWheel(event) {
+    console.log(event)
+    if (Math.abs(event.deltaY) > 0) {
+      event.preventDefault(); // Отключаем инерцию
+    }
+  }
+
+  // onMount(() => {
+  //   const splideContainer = document.querySelector('.splide');
+
+  //   // Отключаем инерцию скролла
+  //   splideContainer.addEventListener('wheel', disableScrollInertia, { passive: false });
+  // });
+
   onMount(() => {
     // scrollHeight children
     // console.log(mySlider.splide.root.children[0].children[0].children.length )
     // const heightSplider = mySlider.splide.root.children[0].scrollHeight
     // const sliders = mySlider.splide.root.children[0].children[0].children
+
+    // const maxHeight = sliders.forEach(slider => slider.scrollHeight)
     // console.log(mySlider.splide.Components)
     image = document.querySelector('.image')
+    // const splideContainer = document.querySelector('.splide');
+
+//   // Отключаем инерцию скролла
+    // window.addEventListener('wheel', (e) => {
+    //   e.preventDefault()
+    //   console.log(e)
+    // });
+
+    const splideContainer = document.querySelector('.splide');
+    
+    // Отключаем инерцию на тачпаде
+    window.addEventListener('scroll', handleWheel, { passive: false });
     initImage()
   })
 
@@ -71,11 +101,13 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
       arrows: false,
       pagination: false,
       focus    : 'center',
-      waitForTransition: true
+      waitForTransition: true,
+      flickMaxPages: 1,
+      releaseWheel: true
     }}
     on:move={e => {
       const index = e.detail.index
-      const startId = 2
+      const startId = 3
       const endId = startId + blocks.length
       const slides = e.detail.splide.root.firstElementChild.querySelectorAll('.splide__slide')
       slideActiveId = index
@@ -103,6 +135,10 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
       <About active={slideActiveId == 1}/>
     </SplideSlide>
 
+    <SplideSlide>
+      <Text />
+    </SplideSlide>
+
     {#each blocks as el, i}
       <SplideSlide>
         <Block 
@@ -115,7 +151,15 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     {/each}
 
     <SplideSlide>
+      <Roles />
+    </SplideSlide>
+
+    <SplideSlide>
       <Text />
+    </SplideSlide>
+
+    <SplideSlide>
+      <ContactUs active={slideActiveId == 0}/>
     </SplideSlide>
 
   </Splide>

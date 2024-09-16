@@ -46,11 +46,8 @@
       max-width: 50px;
       max-height: 50px;
       padding: 7px;
-      // border-radius: 50%;
       transition: 0.3s;
-      // background: #fff;
       color: #fff;
-      // box-shadow: 0 0 10px #000;
 
       &:hover {
         outline: 1px solid #4073ff;

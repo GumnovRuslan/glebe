@@ -1,14 +1,15 @@
 <script>
+  import Title from "./Title.svelte";
+
   export let active = false;
 </script>
 
 <section class="about">
-  <!-- <div class="about__top {active ? 'about__top--active' : ''}"></div> -->
   <div class="about__inner">
     <div class="about__content">
-      <h2 class="about__title {active ? 'about__title--active' : ''}">About</h2>
+      <Title text='About' {active}/>
       <p class="about__description {active ? 'about__description--active' : ''}">
-        Glebe is a world where every handful of earth can turn into a golden nugget, and every action brings you closer to true wealth. Here, in the era of a new gold rush, users compete for resources, explore lands and earn. In Glebe everyone can build their own business empire, combining all the game roles, building new and novel earning strategies to maximize profits. Every object in the game is an NFT with real value, and every move can open the path to riches. It's not just a game - it's your chance to make money in an exciting digital universe!
+        Glebe is a world where every handful of earth can turn into a golden nugget, and every action brings you closer to true wealth. Here, in the era of a new gold rush, users compete for resources, explore lands and earn. In Glebe everyone can build their own business empire, combining all the game roles, building new and novel earning strategies to maximize profits.
       </p>
     </div>
   </div>
@@ -18,20 +19,6 @@
   @import '/static/styles/mixins.scss';
   .about {
     position: relative;
-
-    &__top {
-      position: absolute;
-      top: 0;
-      transition: 1s;
-      transform: translateY(-40%);
-      background: red;
-      width: 100%;
-      height: 200px;
-
-      &--active {
-        transform: translateY(-100%);
-      }
-    }
     
     &__inner {
       display: flex;
@@ -45,6 +32,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 40px;
       padding: 0 20px;
       overflow: hidden;
 

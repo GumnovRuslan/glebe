@@ -49,19 +49,20 @@
         }
       }
 
-      // @include media-breakpoint-up(lg) {
-      //   margin-bottom: 40px;
-      //   font-size: 50px;
-      // }
+      @include media-breakpoint-up(xl) {
+        font-size: 50px;
+      }
 
-      // @include media-breakpoint-between(md, lg) {
-      //   margin-bottom: 30px;
-      //   font-size: 30px;
-      // }
+      @include media-breakpoint-between(lg, xl) {
+        font-size: 40px;
+      }
 
-      // @include media-breakpoint-down(md) {
-      //   margin-bottom: 20px;
-      //   font-size: 26px;
-      // }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 30px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 26px;
+      }
     }
 </style>

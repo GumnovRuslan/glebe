@@ -6,6 +6,7 @@
   background: #000;
 }
 
-section {
+/* :global(section) {
   position: relative;
-}
+  padding: 90px 50px;
+} */

@@ -22,7 +22,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
 
     &__inner {
       display: flex;

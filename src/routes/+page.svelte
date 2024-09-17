@@ -8,44 +8,55 @@
   import Text from "../lib/components/Text.svelte";
   import Roles from "../lib/components/Roles/Roles.svelte";
   import ContactUs from "../lib/components/ContactUs.svelte";
+  import Team from "../lib/components/Team.svelte";
 
   const blocks = [
     {
-      title: 'Target audience:',
-      description: 'Glebe is aimed at gamers, crypto-enthusiasts and NFT investors aged 18 to 45. These users are actively involved in the development of Play2Earn and blockchain games, and many of them are using Telegram as their primary platform to interact with the crypto community.',
+      title: 'Unique land exploration system:',
+      description: 'Players can explore various lands and find areas with varying profitability, which creates constant dynamics and new opportunities in the gameplay.',
       src: '/images/image1.png'
     },
     {
-      title: 'Market potential:',
-      description: `The GameFi market is projected to reach $19.58 billion by 2024, with a robust compound annual growth rate (CAGR) of 27.7% from 2024 to 2031. This growth is driven by the integration of blockchain technologies, which enhance transparency, trust, and security in gaming environments. GameFi's rise is fueled by the increasing popularity of play-to-earn models, which allow players to earn digital assets and real-world value through in-game activities. The Asia Pacific, North America, and Europe are expected to lead in market revenue, with significant growth opportunities in China, the U.S., and Europe​.
-By 2030, the market could grow exponentially, making GameFi a crucial player in both the gaming and decentralized finance ecosystems.`,
+      title: 'Variety of ways for earning:',
+      description: `Glebe offers the opportunity to build different business models, including earning without initial investment.`,
       src: '/images/image2.webp'
     },
     {
-      title: 'The potential of games on the Telegram platform:',
-      description: 'Telegram is one of the fastest-growing platforms in the world and currently has over 1 billion active users. Due to its flexibility, ability to integrate bots and mini-apps, Telegram has become an important tool for crypto-enthusiasts and Play2Earn game developers. The platform is also known for its focus on privacy and decentralization, which attracts both gamers and investors willing to participate in blockchain-based Play2Earn projects.',
+      title: 'Passive income through NFT ownership:',
+      description: 'Owners of land and other in-game assets can earn a steady income by renting them out, allowing them to earn even without actively participating in the gameplay.',
       src: '/images/image1.png'
     },
     {
-      title: 'The potential of the TON blockchain:',
-      description: 'The TON (The Open Network) blockchain plays a key role in providing low transaction costs and high performance, making it an ideal technological foundation for games with NFT elements.',
+      title: 'Deep integration of NFT with gameplay:',
+      description: `Owners of lands, tools and islands don't just own digital assets - they manage assets that can generate real passive income through rentals and other in-game transactions. This makes the game's economy deeper and more dynamic, providing players real opportunities for long-term investment.`,
       src: '/images/image2.webp'
     },
     {
-      title: 'Conclusion:',
-      description: 'Glebe integrates three powerful market trends - Play2Earn, Telegram as a gaming platform and the TON blockchain - which offers significant opportunities for growth and involvement of an active audience.',
+      title: 'Variety of game roles: ',
+      description: 'Glebe offers the unique ability to choose multiple roles, each providing players with different ways of earning. Players can participate both actively (e.g. gold miners) and passively (asset owners), which appeals to different categories of users - from those looking for fun to those interested in passive income through NFT management.',
       src: '/images/image1.png'
     },
   ]
 
-  const delay = 1000
+  const sections = [
+    {name: 'Hero', id: 0}, 
+    {name: 'About', id: 1}, 
+    {name: 'Gameplay', id: 2}, 
+    {name: 'Roles', id: 3}, 
+    {name: 'DFifferences', id: 4},
+    {name: 'Team', id: 9},
+    {name: 'Contact', id: 10}
+  ]
+
+  const delay = 800
   const easing = 'ease-in-out'
 
   let slideActiveId = 0
   let blockActiveId = 0
-  let blockActiveId2 = 0
   let mySlider
   let image
+
+  let scrollTimeout;
 
   function handleWheel(event) {
     console.log(event)
@@ -61,7 +72,23 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
   //   splideContainer.addEventListener('wheel', disableScrollInertia, { passive: false });
   // });
 
+  function handleScroll(event) {
+    event.preventDefault()
+    // Если таймер уже запущен, сбрасываем его
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+
+    // Устанавливаем новый таймер
+    scrollTimeout = setTimeout(() => {
+      console.log("Scroll event triggered");
+      // Выполняем нужную логику здесь, например, перемещение слайда.
+    }, 100); // Задержка в 100 миллисекунд
+  }
+
   onMount(() => {
+    console.log(mySlider)
+    // console.log(mySlider.go(2))
     // scrollHeight children
     // console.log(mySlider.splide.root.children[0].children[0].children.length )
     // const heightSplider = mySlider.splide.root.children[0].scrollHeight
@@ -81,35 +108,18 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     const splideContainer = document.querySelector('.splide');
     
     // Отключаем инерцию на тачпаде
-    window.addEventListener('scroll', handleWheel, { passive: false });
+    // document.addEventListener('wheel', handleWheel, { passive: false });
+    // window.addEventListener('wheel', handleScroll, {passive: false});
     initImage()
+
+    
   })
 
-  function initImage() {
-    image.style.transition = `${delay / 1000}s ${easing}`
-  }
-</script>
-
-<Splide aria-label="My Favorite Images" class='slider' bind:this={ mySlider }
-    options={{
-      direction: 'ttb',
-      speed: delay,
-      easing: easing,
-      height   : '100vh',
-      autoHeight: true,
-      wheel    : true,
-      arrows: false,
-      pagination: false,
-      focus    : 'center',
-      waitForTransition: true,
-      flickMaxPages: 1,
-      releaseWheel: true
-    }}
-    on:move={e => {
-      const index = e.detail.index
-      const startId = 3
+  function imageHandler(e) {
+    const index = e.detail.index
+      const startId = 4
       const endId = startId + blocks.length
-      const slides = e.detail.splide.root.firstElementChild.querySelectorAll('.splide__slide')
+      // const slides = e.detail.splide.root.firstElementChild.querySelectorAll('.splide__slide')
       slideActiveId = index
       blockActiveId = (index - startId < 0) 
       ? 0 
@@ -124,11 +134,42 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
       } else if(index >= endId) {
         image.style.top = `${endId -1 - index}00vh`
       }
+  }
+
+  function goTo(num) {
+    mySlider.go(num)
+  }
+
+  function initImage() {
+    image.style.transition = `${delay / 1000}s ${easing}`
+  }
+</script>
+
+<Splide aria-label="My Favorite Images" class='slider' bind:this={ mySlider }
+    options={{
+      direction: 'ttb',
+      speed: delay,
+      remindSpeed: 0,
+      easing: easing,
+      height   : '100vh',
+      autoHeight: true,
+      wheel    : true,
+      arrows: false,
+      pagination: false,
+      perMove: 1,
+      focus    : 'center',
+      waitForTransition: true,
+      flickMaxPages: 1,
+      releaseWheel: true,
+      preloadPages: 1,
+      // drag   : 'free',
     }}
+    on:move={imageHandler}
+    on:dragging={imageHandler}
     >
 
     <SplideSlide>
-      <Hero />
+      <Hero slider={goTo} sections={sections}/>
     </SplideSlide>
 
     <SplideSlide>
@@ -136,7 +177,11 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     </SplideSlide>
 
     <SplideSlide>
-      <Text />
+      <Text bgImage='/image' title='' text=''/>
+    </SplideSlide>
+
+    <SplideSlide>
+      <Roles />
     </SplideSlide>
 
     {#each blocks as el, i}
@@ -151,20 +196,16 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
     {/each}
 
     <SplideSlide>
-      <Roles />
+      <Team title='title' text='text'/>
     </SplideSlide>
 
     <SplideSlide>
-      <Text />
-    </SplideSlide>
-
-    <SplideSlide>
-      <ContactUs active={slideActiveId == 0}/>
+      <ContactUs active={slideActiveId == 10}/>
     </SplideSlide>
 
   </Splide>
 
-  <div class="image">
+  <div class="image {blockActiveId ? 'image__first' : ''}" style="{`${delay / 1000}s ${easing}`}">
     <div class="image__wrapper">
       {#each blocks as el, i}
         <img class="image__inner {blockActiveId == i ? 'image--active' : ''}" src={el.src} alt="image {i}">
@@ -174,46 +215,40 @@ By 2030, the market could grow exponentially, making GameFi a crucial player in 
 
 <style lang="scss">
   @import '/static/styles/mixins.scss';
-
-  .text {
-    margin-top: 100px;
-    padding: 50px 20px;
-    background: #000;
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-
-    & p {
-      font-size: 26px;
-      line-height: 36px;
-      color: #fff;
-    }
-  }
-
-  .title {
-    text-align: center;
-    font-size: 50px;
-    color: #fff;
-  }
-
   .image {
     position: fixed;
     top: 200vh;
     left: 50px;
     transform: translateY(calc(50vh - 50%));
-    width: 500px;
+    width: 100%;
     aspect-ratio: 1.5/1;
     pointer-events: none;
 
-    @include media-breakpoint-between(md, lg) {
-      left: 20px;
+    @include media-breakpoint-up(xl) {
+      max-width: 580px;
+    }
+
+    @include media-breakpoint-between(lg, xl) {
       max-width: 400px;
     }
 
+    @include media-breakpoint-between(md, lg) {
+      left: 30px;
+      max-width: 380px;
+    }
+
     @include media-breakpoint-down(md) {
-      transform: translateY(calc(100px)) translateX(-50%);
+      transform: translateY(calc(170px)) translateX(-50%);
       left: 50%;
-      width: 100%;
-      max-width: 600px;
+      max-width: 450px;
+    }
+
+    &__first {
+      @include media-breakpoint-down(md) {
+      transform: translateY(calc(90px)) translateX(-50%);
+      left: 50%;
+      max-width: 450px;
+    }
     }
     
     &__wrapper {

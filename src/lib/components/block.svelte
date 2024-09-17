@@ -8,7 +8,7 @@
 <section class="block {active ? 'block--active' : ''}">
   <div class="block__inner">
     {#if id == 0}
-      <h2 class="block__title">Market and target audience</h2>
+      <h2 class="block__title">What makes our project stand out?</h2>
     {/if}
     <div class="block__content">
       <div class="block__card">
@@ -25,19 +25,19 @@
     opacity: 0.2;
     transition: 1s 0.3s;
     color: #fff;
+    height: 100vh;
 
     &--active {
       opacity: 1;
     }
 
     &__inner {
-      padding: 100px 20px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       justify-content: flex-start;
       gap: 30px;
-      min-height: 100vh;
+      height: 100%;
     }
 
     &__title {
@@ -47,17 +47,36 @@
       text-align: center;
       color: #fff;
       margin-bottom: -26px;
+
+      @include media-breakpoint-between(sm, md) {
+        font-size: 30px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 30px;
+      }
     }
 
     &__content {
       flex: content;
       display: flex;
       align-items: center;
+
+      @include media-breakpoint-down(md) {
+        align-items: flex-end;
+      }
     }
 
     &__card {
       display: flex;
-      gap: 50px;
+
+      @include media-breakpoint-up(xl) {
+        gap: 30px;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        max-width: 40vw;
+      }
 
       @include media-breakpoint-down(xl) {
         flex-direction: column;
@@ -66,11 +85,17 @@
     }
 
     &__card_title {
-      max-width: 400px;
       align-self: flex-start;
 
       @include media-breakpoint-up(xl) {
+        max-width: 350px;
         font-size: 40px;
+        text-align: center;
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        max-width: 350px;
+        font-size: 36px;
         text-align: center;
       }
 
@@ -81,13 +106,24 @@
       @include media-breakpoint-between(md, lg) {
         font-size: 30px;
       }
+
+      @include media-breakpoint-down(md) {
+        text-align: center;
+        font-size: 26px;
+      }
     }
 
     &__card_text {
-      @include media-breakpoint-up(xl) {
-        max-width: 600px;
+      @include media-breakpoint-up(xxl) {
+        max-width: 35vw;
         font-size: 30px;
         line-height: 42px;
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        max-width: 25vw;
+        font-size: 28px;
+        line-height: 32px;
       }
 
       @include media-breakpoint-between(lg, xl) {
@@ -97,7 +133,6 @@
       }
 
       @include media-breakpoint-between(md, lg) {
-        max-width: 39vw;
         font-size: 24px;
         line-height: 30px;
       }
@@ -105,7 +140,7 @@
       @include media-breakpoint-down(md) {
         text-align: justify;
         max-width: 100%;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 28px;
       }
     }

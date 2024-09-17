@@ -10,7 +10,7 @@
     position: fixed;
     z-index: 10;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     top: 0;
     left: 0;
 

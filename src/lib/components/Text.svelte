@@ -15,20 +15,19 @@
 </section>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .text {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
 
     &__content {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 100px 50px;
+      height: 100%;
+      overflow: hidden;
     }
 
     &__content_wrapper {
@@ -47,11 +46,31 @@
       font-weight: 700;
       color: #ffffff;
       text-shadow: 0 0 10px #000;
+
+      @include media-breakpoint-between(sm, md) {
+        font-size: 40px;
+        line-height: 30px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 34px;
+        line-height: 26px;
+      }
     }
 
     &__text {
       font-size: 30px;
       color: #ffffff;
+
+      @include media-breakpoint-between(sm, md) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 20px;
+        line-height: 26px;
+      }
     }
 
     &__background {

@@ -1,7 +1,7 @@
 <script>
   import Hero from "../lib/components/Hero.svelte";
   import About from "../lib/components/About.svelte";
-  import Block from "../lib/components/Block.svelte";
+  import Block from "../lib/components/block.svelte";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
@@ -93,6 +93,7 @@
     // console.log(mySlider.splide.root.children[0].children[0].children.length )
     // const heightSplider = mySlider.splide.root.children[0].scrollHeight
     // const sliders = mySlider.splide.root.children[0].children[0].children
+
     // const maxHeight = sliders.forEach(slider => slider.scrollHeight)
     // console.log(mySlider.splide.Components)
     image = document.querySelector('.image')

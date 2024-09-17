@@ -1,14 +1,16 @@
 <script>
-  import Hero from "../lib/components/Hero.svelte";
-  import About from "../lib/components/About.svelte";
-  import Block from "../lib/components/block.svelte";
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/svelte-splide/css';
   import { onMount } from "svelte";
-  import Text from "../lib/components/Text.svelte";
+  import Header from "../lib/components/Sections/Header.svelte";
+  import Footer from "../lib/components/Sections/Footer.svelte";
+  import Hero from "../lib/components/Sections/Hero.svelte";
+  import About from "../lib/components/Sections/About.svelte";
+  import Block from "../lib/components/Sections/Block.svelte";
+  import Text from "../lib/components/Sections/Text.svelte";
   import Roles from "../lib/components/Roles/Roles.svelte";
-  import ContactUs from "../lib/components/ContactUs.svelte";
-  import Team from "../lib/components/Team.svelte";
+  import ContactUs from "../lib/components/Sections/ContactUs.svelte";
+  import Team from "../lib/components/Sections/Team.svelte";
 
   const blocks = [
     {
@@ -83,7 +85,7 @@
       // }
   }
 
-  function goTo(num) {
+  function goToSectionId(num) {
     mySlider.go(num)
   }
 
@@ -92,7 +94,11 @@
   }
 </script>
 
-<Splide aria-label="My Favorite Images" class='slider' bind:this={ mySlider }
+<div class="wrapper">
+  <Header handler={goToSectionId} sections={sections}/>
+
+  <main class="main">
+    <Splide aria-label="My Favorite Images" class='slider' bind:this={ mySlider }
     options={{
       direction: 'ttb',
       speed: delay,
@@ -106,21 +112,21 @@
       perMove: 1,
       focus    : 'center',
       waitForTransition: true,
-      wheelSleep: 1000,
       flickMaxPages: 1,
       releaseWheel: true,
       preloadPages: 1,
-      dragMinThreshold: 100,
+      dragMinThreshold: {
+        mouse: 20,
+        touch: 20,
+      },
       wheelMinThreshold: 10
       // drag   : 'free',
     }}
     on:move={imageHandler}
     >
-    <!-- on:move={imageHandler}
-    on:dragging={imageHandler} -->
 
     <SplideSlide>
-      <Hero slider={goTo} sections={sections}/>
+      <Hero/>
     </SplideSlide>
 
     <SplideSlide>
@@ -163,9 +169,40 @@
       {/each}
     </div>
   </div> -->
+  </main> 
+  <Footer/>
+</div>
+
+
 
 <style lang="scss">
   @import '/static/styles/mixins.scss';
+
+  .wrapper {
+    position: relative;
+  }
+
+  :global(section) {
+    max-height: 100vh;
+    position: relative;
+
+    @include media-breakpoint-up(xl) {
+      padding: 90px 50px;
+    } 
+
+    @include media-breakpoint-between(lg, xl) {
+      padding: 90px 40px;
+    } 
+
+    @include media-breakpoint-between(md, lg) {
+      padding: 90px 30px;
+    } 
+
+    @include media-breakpoint-down(md) {
+      padding: 90px 15px;
+    } 
+  } 
+
   .image {
     position: fixed;
     top: 200vh;
@@ -218,7 +255,6 @@
       transition: 1s;
       opacity: 0;
       transform: scale(100%);
-      
     }
 
     &--active {

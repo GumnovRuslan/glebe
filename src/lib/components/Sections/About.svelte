@@ -1,5 +1,5 @@
 <script>
-  import Title from "./Title.svelte";
+  import Title from "../Title.svelte";
 
   export let active = false;
 </script>
@@ -19,12 +19,13 @@
   @import '/static/styles/mixins.scss';
   .about {
     position: relative;
+    height: 100vh;
     
     &__inner {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       background: #000;
     }
 

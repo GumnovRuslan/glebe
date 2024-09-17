@@ -31,6 +31,7 @@
 <style lang="scss">
   @import '/static/styles/mixins.scss';
   .roles {
+    height: 100vh;
     // padding: 100px 60px;
 
     &__inner {

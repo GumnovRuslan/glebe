@@ -1,5 +1,5 @@
 <script>
-  import { telegram, twiter, email } from '../icons'
+  import { telegram, twiter, email } from '../../icons'
 </script>
 
 <footer class="footer">

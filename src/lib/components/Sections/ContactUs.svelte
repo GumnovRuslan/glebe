@@ -1,7 +1,7 @@
 <script>
-  import Link from "./Link.svelte";
-  import Title from "./Title.svelte";
-  import { telegram, twiter, email} from "../icons";
+  import Link from "../Link.svelte";
+  import Title from "../Title.svelte";
+  import { telegram, twiter, email} from "../../icons";
 
   export let active = false
 </script>
@@ -10,9 +10,9 @@
   <div class="contact__inner">
     <Title text="Contact us" {active}/>
     <div class="contact__content">
-      <Link icon={telegram} text='Telegram'/>
-      <Link icon={twiter} text='Twiter'/>
-      <Link icon={email} text='Email'/>
+      <Link icon={telegram} text='https://t.me/glebecommunity' href="https://t.me/glebecommunity"/>
+      <Link icon={twiter} text='https://x.com/GlebeComm' href="https://x.com/GlebeComm"/>
+      <Link icon={email} text='mailto:info@glebe.online' href="mailto:info@glebe.online"/>
     </div>
   </div>
 </section>

@@ -1,6 +1,4 @@
 <script>
-  export let slider = null
-  export let sections = []
 </script>
 
 <section class="hero">
@@ -8,11 +6,6 @@
     <img class="hero__background_img" src="/images/Glebe_1.jpg" alt="background">
   </div>
   <div class="hero__content">
-    <div class="hero__sections">
-      {#each sections as section}
-        <button type="button" class="hero__btn_section" on:click={() => slider(section.id)}>{section.name}</button>
-      {/each}
-    </div>
     <p class="hero__title">A game where every strike brings gold</p>
   </div>
 </section>
@@ -29,9 +22,9 @@
       width: 100%;
       height: 100%;
       display: flex;
-      flex-direction: column;
-      // align-items: flex-end;
-      justify-content: space-between;
+      // flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
       padding: 90px 20px;
     }
 
@@ -43,38 +36,6 @@
       background: #00000088;
       border-radius: 20px;
       padding: 15px;
-    }
-
-    &__btn_section {
-      position: relative;
-      background: transparent;
-      border: none;
-      font-size: 26px;
-      text-align: left;
-      color: #fff;
-      cursor: pointer;
-      max-width: max-content;
-      padding: 0;
-      overflow: hidden;
-      
-
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: -100%;
-        width: 100%;
-        height: 1px;
-        background: #fff;
-        transition: 0.3s;
-      }
-
-      &:hover {
-        &::before {
-          left: 0;
-        }
-      }
-      
     }
 
     &__title {

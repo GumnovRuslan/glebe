@@ -6,10 +6,13 @@
 </script>
 
 <section class="block {active ? 'block--active' : ''}">
-  <div class="block__inner">
-    {#if id == 0}
+  {#if id == 0}
       <h2 class="block__title">What makes our project stand out?</h2>
-    {/if}
+  {/if}
+  <div class="block__inner">
+    <div class="block__image {active ? 'block__image--active' : ''}">
+      <img src="/images/image2.webp" alt="">
+    </div>
     <div class="block__content">
       <div class="block__card">
         <p class="block__card_title">{title}</p>
@@ -23,9 +26,8 @@
   @import '/static/styles/mixins.scss';
   .block {
     opacity: 0.2;
-    transition: 1s 0.3s;
+    transition: 0.5s 0.3s;
     color: #fff;
-    height: 100vh;
 
     &--active {
       opacity: 1;
@@ -33,11 +35,25 @@
 
     &__inner {
       display: flex;
-      flex-direction: column;
       align-items: flex-end;
-      justify-content: flex-start;
+      align-items: center;
       gap: 30px;
       height: 100%;
+
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      }
+    }
+
+    &__image {
+      max-width: 600px;
+      aspect-ratio: 1/1;
+      opacity: 0;
+      transition: 0.5s 0.5s;
+
+      &--active {
+        opacity: 1;
+      }
     }
 
     &__title {
@@ -46,7 +62,7 @@
       text-align: center;
       text-align: center;
       color: #fff;
-      margin-bottom: -26px;
+      margin-bottom: 50px;
 
       @include media-breakpoint-between(sm, md) {
         font-size: 30px;

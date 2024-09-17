@@ -31,7 +31,6 @@
 <style lang="scss">
   @import '/static/styles/mixins.scss';
   .roles {
-    height: 100vh;
     // padding: 100px 60px;
 
     &__inner {
@@ -80,7 +79,7 @@
 
       @include media-breakpoint-down( md) {
         grid-template-columns: repeat(1, 100%);
-        grid-template-rows: repeat(4, 120px);
+        grid-template-rows: repeat(4, 220px);
         gap: 15px;
       }
     }

@@ -49,55 +49,55 @@
       }
     }
 
-    &__title {
-      width: max-content;
-      padding: 0 20px;
-      position: relative;
-      text-align: center;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      // transition: 0.5s .5s;
+    // &__title {
+    //   width: max-content;
+    //   padding: 0 20px;
+    //   position: relative;
+    //   text-align: center;
+    //   font-weight: 700;
+    //   text-transform: uppercase;
+    //   color: #fff;
+    //   // transition: 0.5s .5s;
 
-      &::before, 
-      &::after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 2px;
-        top: 50%;
-        transition: 0.8s 0.5s;
-        background: currentColor;
-      }
-      &::before {
-        left: 100%;
-      }
-      &::after {
-        right: 100%;
-      }
+    //   &::before, 
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50px;
+    //     height: 2px;
+    //     top: 50%;
+    //     transition: 0.8s 0.5s;
+    //     background: currentColor;
+    //   }
+    //   &::before {
+    //     left: 100%;
+    //   }
+    //   &::after {
+    //     right: 100%;
+    //   }
 
-      &--active {
-        &::before, 
-        &::after {
-          width: 200px;
-        }
-      }
+    //   &--active {
+    //     &::before, 
+    //     &::after {
+    //       width: 200px;
+    //     }
+    //   }
 
-      @include media-breakpoint-up(lg) {
-        margin-bottom: 40px;
-        font-size: 50px;
-      }
+    //   @include media-breakpoint-up(lg) {
+    //     margin-bottom: 40px;
+    //     font-size: 50px;
+    //   }
 
-      @include media-breakpoint-between(md, lg) {
-        margin-bottom: 30px;
-        font-size: 30px;
-      }
+    //   @include media-breakpoint-between(md, lg) {
+    //     margin-bottom: 30px;
+    //     font-size: 30px;
+    //   }
 
-      @include media-breakpoint-down(md) {
-        margin-bottom: 20px;
-        font-size: 26px;
-      }
-    }
+    //   @include media-breakpoint-down(md) {
+    //     margin-bottom: 20px;
+    //     font-size: 26px;
+    //   }
+    // }
 
     &__description {
       transition: 1.5s 0.5s;

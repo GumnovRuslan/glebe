@@ -48,7 +48,7 @@
     {name: 'Contact', id: 10}
   ]
 
-  const delay = 800
+  const delay = 600
   const easing = 'ease-in-out'
 
   let slideActiveId = 0
@@ -56,70 +56,17 @@
   let mySlider
   let image
 
-  let scrollTimeout;
-
-  function handleWheel(event) {
-    console.log(event)
-    if (Math.abs(event.deltaY) > 0) {
-      event.preventDefault(); // Отключаем инерцию
-    }
-  }
-
-  // onMount(() => {
-  //   const splideContainer = document.querySelector('.splide');
-
-  //   // Отключаем инерцию скролла
-  //   splideContainer.addEventListener('wheel', disableScrollInertia, { passive: false });
-  // });
-
-  function handleScroll(event) {
-    event.preventDefault()
-    // Если таймер уже запущен, сбрасываем его
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
-    }
-
-    // Устанавливаем новый таймер
-    scrollTimeout = setTimeout(() => {
-      console.log("Scroll event triggered");
-      // Выполняем нужную логику здесь, например, перемещение слайда.
-    }, 100); // Задержка в 100 миллисекунд
-  }
-
   onMount(() => {
     console.log(mySlider)
-    // console.log(mySlider.go(2))
-    // scrollHeight children
-    // console.log(mySlider.splide.root.children[0].children[0].children.length )
-    // const heightSplider = mySlider.splide.root.children[0].scrollHeight
-    // const sliders = mySlider.splide.root.children[0].children[0].children
-
-    // const maxHeight = sliders.forEach(slider => slider.scrollHeight)
-    // console.log(mySlider.splide.Components)
-    image = document.querySelector('.image')
-    // const splideContainer = document.querySelector('.splide');
-
-//   // Отключаем инерцию скролла
-    // window.addEventListener('wheel', (e) => {
-    //   e.preventDefault()
-    //   console.log(e)
-    // });
-
-    const splideContainer = document.querySelector('.splide');
-    
-    // Отключаем инерцию на тачпаде
-    // document.addEventListener('wheel', handleWheel, { passive: false });
-    // window.addEventListener('wheel', handleScroll, {passive: false});
-    initImage()
-
-    
+    // initImage()
   })
+
+ 
 
   function imageHandler(e) {
     const index = e.detail.index
       const startId = 4
       const endId = startId + blocks.length
-      // const slides = e.detail.splide.root.firstElementChild.querySelectorAll('.splide__slide')
       slideActiveId = index
       blockActiveId = (index - startId < 0) 
       ? 0 
@@ -127,13 +74,13 @@
       ? blocks.length-1 
       : index - startId
       
-      if(index <= startId) {
-        image.style.top = `${startId - index}00vh`
-      } else if(index > startId && index < endId) {
-        image.style.top = `0`
-      } else if(index >= endId) {
-        image.style.top = `${endId -1 - index}00vh`
-      }
+      // if(index <= startId) {
+      //   image.style.top = `${startId - index}00vh`
+      // } else if(index > startId && index < endId) {
+      //   image.style.top = `0`
+      // } else if(index >= endId) {
+      //   image.style.top = `${endId -1 - index}00vh`
+      // }
   }
 
   function goTo(num) {
@@ -159,14 +106,18 @@
       perMove: 1,
       focus    : 'center',
       waitForTransition: true,
+      wheelSleep: 1000,
       flickMaxPages: 1,
       releaseWheel: true,
       preloadPages: 1,
+      dragMinThreshold: 100,
+      wheelMinThreshold: 10
       // drag   : 'free',
     }}
     on:move={imageHandler}
-    on:dragging={imageHandler}
     >
+    <!-- on:move={imageHandler}
+    on:dragging={imageHandler} -->
 
     <SplideSlide>
       <Hero slider={goTo} sections={sections}/>
@@ -187,10 +138,10 @@
     {#each blocks as el, i}
       <SplideSlide>
         <Block 
-        id={i}
-        active={blockActiveId == i}
-        title={el.title}
-        description={el.description}
+          id={i}
+          active={blockActiveId == i}
+          title={el.title}
+          description={el.description}
         />
       </SplideSlide>
     {/each}
@@ -205,13 +156,13 @@
 
   </Splide>
 
-  <div class="image {blockActiveId ? 'image__first' : ''}" style="{`${delay / 1000}s ${easing}`}">
+  <!-- <div class="image {blockActiveId ? 'image__first' : ''}" bind:this={image} style="{`${delay / 1000}s ${easing}`}">
     <div class="image__wrapper">
       {#each blocks as el, i}
         <img class="image__inner {blockActiveId == i ? 'image--active' : ''}" src={el.src} alt="image {i}">
       {/each}
     </div>
-  </div>
+  </div> -->
 
 <style lang="scss">
   @import '/static/styles/mixins.scss';

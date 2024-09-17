@@ -1,12 +1,8 @@
 :root {
-  
+  --color-primary: #fff;
+  --color-secondary: #000;
 }
 
 .wrapper {
   background: #000;
 }
-
-/* :global(section) {
-  position: relative;
-  padding: 90px 50px;
-} */

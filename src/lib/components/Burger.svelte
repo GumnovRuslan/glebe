@@ -17,6 +17,7 @@
 </button>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .burger {
     width: max-content;
     display: flex;
@@ -27,14 +28,14 @@
     border: none;
     cursor: pointer;
 
-    &--hidden {
+    @include media-breakpoint-up(lg) {
       display: none;
     }
 
     &__line {
       position: relative;
-      width: 40px;
-      height: 4px;
+      width: 36px;
+      height: 3px;
       background: #fff;
       border-radius: 20px;
 
@@ -50,11 +51,11 @@
       }
 
       &::before {
-        top: -13px;
+        top: -12px;
       }
 
       &::after {
-        top: 13px;
+        top: 12px;
       }
     }
   }

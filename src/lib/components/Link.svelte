@@ -12,6 +12,7 @@
 </a>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .link {
     position: relative;
     display: flex;
@@ -44,12 +45,25 @@
     }
 
     &__icon {
-      max-width: 40px;
-      max-height: 40px;
+      @include media-breakpoint-up(md) {
+        max-width: 40px;
+        max-height: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        max-width: 30px;
+        max-height: 30px;
+      }
     }
 
     &__text {
-      font-size: 30px;
+      @include media-breakpoint-down(md) {
+        font-size: 30px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 20px;
+      }
     }
   }
 </style>

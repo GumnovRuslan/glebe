@@ -7,7 +7,7 @@
     <img class="team__background_img" src="/images/glebe_hp.webp" alt="background">
   </div>
   <div class="team__content">
-    <div class="team__content_wrapper">
+    <div class="team__content_inner">
       <p class="team__title">Gameplay:</p>
       <p class="team__text">Glebe transports players to an immersive gold rush universe where each participant chooses their unique role and interacts with in-game assets to generate cryptocurrency profits. Players can become explorers, landlords or large-scale owners, creating a unique ecosystem where the economy is player-driven and hardened by real value through NFT.</p>
     </div>
@@ -15,43 +15,74 @@
 </section>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .team {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
 
     &__content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 100px 50px;
+      height: 100%;
     }
 
-    &__content_wrapper {
+    &__content_inner {
       display: flex;
       flex-direction: column;
       gap: 20px;
       max-width: 600px;
-      padding: 30px;
-      border-radius: 50px;
-      background: #00000098;
       backdrop-filter: blur(5px);
+      background: #00000098;
+
+      @include media-breakpoint-up(md) {
+        padding: 30px;
+        border-radius: 50px;
+      }
+
+      @include media-breakpoint-between(sm, md) {
+        padding: 25px;
+        border-radius: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding: 20px;
+        border-radius: 30px;
+      }
     }
 
     &__title {
-      font-size: 46px;
       font-weight: 700;
-      color: #ffffff;
       text-shadow: 0 0 10px #000;
+      color: #ffffff;
+
+      @include media-breakpoint-up(md) {
+        font-size: 46px;
+      }
+
+      @include media-breakpoint-between(sm, md) {
+        font-size: 36px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 30px;
+      }
     }
 
     &__text {
-      font-size: 30px;
       color: #ffffff;
+
+      @include media-breakpoint-up(md) {
+        font-size: 30px;
+      }
+
+      @include media-breakpoint-between(sm, md) {
+        font-size: 26px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 24px;
+      }
     }
 
     &__background {

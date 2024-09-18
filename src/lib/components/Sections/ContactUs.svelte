@@ -18,8 +18,9 @@
 </section>
 
 <style lang="scss">
+  @import '/static/styles/mixins.scss';
   .contact {
-    padding: 100px 50px;
+    // padding: 90px 50px;
     height: 100vh;
 
     &__inner {

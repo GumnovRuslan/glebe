@@ -44,10 +44,14 @@
       align-items: center;
       gap: 50px;
       min-height: 60px;
-      padding: 10px 40px;
+
+      @include media-breakpoint-up(lg) {
+        padding: 10px 40px;
+      }
 
       @include media-breakpoint-down(lg) {
         justify-content: space-between;
+        padding: 10px 10px;
       }
     }
 
@@ -57,6 +61,10 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #fff;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 36px;
+      }
     }
 
     &__nav_list {
@@ -107,8 +115,6 @@
         padding: 10px;
         text-shadow: 0 0 10px #000;
       }
-      
-
       &::before {
         content: '';
         position: absolute;
@@ -120,7 +126,6 @@
         transition: 0.3s;
         border-radius: 10px;
       }
-
       &:hover {
         &::before {
           left: 0;

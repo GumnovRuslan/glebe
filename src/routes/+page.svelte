@@ -170,7 +170,7 @@
     </div>
   </div> -->
   </main> 
-  <Footer/>
+  <!-- <Footer/> -->
 </div>
 
 

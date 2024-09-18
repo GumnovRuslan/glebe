@@ -80,7 +80,7 @@
 
       @include media-breakpoint-down( md) {
         grid-template-columns: repeat(1, 100%);
-        grid-template-rows: repeat(4, 220px);
+        grid-template-rows: repeat(4, 120px);
         gap: 15px;
       }
     }

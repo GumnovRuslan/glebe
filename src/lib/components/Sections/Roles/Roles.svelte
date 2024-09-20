@@ -23,17 +23,6 @@
             arrows: false,
             pagination: false,
             perPage: 4,
-            perMove: 1,
-            // waitForTransition: true,
-            // wheelMinThreshold: 10,
-            dragMinThreshold: {
-              mouse: 20,
-              touch: 20,
-            },
-            flickMaxPages: 1,
-            releaseWheel: true,
-            preloadPages: 1,
-            remindSpeed: 0,
             breakpoints: {
               1640: {
                 padding: '35px',
@@ -42,7 +31,7 @@
               },
               1280: {
                 padding: '30px',
-                perPage: 2.3,
+                perPage: 2,
                 height   : '600px',
               },
               1024: {
@@ -51,18 +40,18 @@
                 height   : '500px',
               },
               800: {
-                padding: '20px',
-                perPage: 1.6,
+                padding: '100px',
+                perPage: 1,
                 height   : '500px',
               },
-              768: {
-                padding: '15px',
-                perPage: 1.5,
-                height   : '500px',
-              },
+              // 768: {
+              //   padding: '15px',
+              //   perPage: 1.5,
+              //   height   : '500px',
+              // },
               560: {
                 padding: '10px',
-                perPage: 1.1,
+                perPage: 1,
                 height   : '500px',
               }
             }
@@ -108,6 +97,7 @@
   @import '/static/styles/mixins.scss';
   
   .roles {
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
     height: 100vh;

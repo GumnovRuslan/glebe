@@ -127,7 +127,7 @@
         mouse: 20,
         touch: 20,
       },
-      wheelMinThreshold: 10
+      wheelMinThreshold: 10,
     }}
     on:move={imageHandler}
    

@@ -8,7 +8,7 @@
   import About from "../lib/components/Sections/About.svelte";
   import Block from "../lib/components/Sections/Block.svelte";
   import Text from "../lib/components/Sections/Text.svelte";
-  import Roles from "../lib/components/Roles/Roles.svelte";
+  import Roles from "../lib/components/Sections/Roles/Roles.svelte";
   import ContactUs from "../lib/components/Sections/ContactUs.svelte";
   import Team from "../lib/components/Sections/Team.svelte";
 
@@ -50,47 +50,55 @@
     {name: 'Contact', id: 10}
   ]
 
-  const delay = 700
+  const delay = 800
   const easing = 'ease-in-out'
 
   let slideActiveId = 0
   let blockActiveId = 0
   let mySlider
   let image
+  let imageisShow = false
+
+  let arrHeight = []
 
   onMount(() => {
-    console.log(mySlider)
-    // initImage()
+    // console.log(mySlider)
+    image.style.transition = `${delay / 1000}s ${easing}`
+    arrHeight = mySlider.splide.Components.Elements.slides.map(slide => slide.scrollHeight)
   })
-
- 
 
   function imageHandler(e) {
     const index = e.detail.index
-      const startId = 4
-      const endId = startId + blocks.length
-      slideActiveId = index
-      blockActiveId = (index - startId < 0) 
-      ? 0 
-      : (index - startId > blocks.length-1) 
-      ? blocks.length-1 
-      : index - startId
-      
-      // if(index <= startId) {
-      //   image.style.top = `${startId - index}00vh`
-      // } else if(index > startId && index < endId) {
-      //   image.style.top = `0`
-      // } else if(index >= endId) {
-      //   image.style.top = `${endId -1 - index}00vh`
-      // }
+    const startId = 4
+    const endId = startId + blocks.length
+    slideActiveId = index
+    blockActiveId = (index - startId < 0) 
+    ? 0 
+    : (index - startId > blocks.length) 
+    ? blocks.length-1 
+    : index - startId
+    console.log(blockActiveId)
+    chandeHeigth(index, startId, endId)
+  }
+
+  function chandeHeigth(index, startId, endId) {
+    const sumStart = arrHeight.slice(index, startId+1).reduce((arr, el) => arr + el, 0)
+    const sumEnd = arrHeight.slice(endId-1, index).reduce((arr, el) => arr + el, 0)
+
+    if(index < startId) {
+      imageisShow = false
+      image.style.top = `${sumStart}px`
+    } else if(index >= startId && index < endId) {
+      imageisShow = true
+      image.style.top = `50%`
+    } else if(index >= endId) {
+      imageisShow = false
+      image.style.top = `-${sumEnd}px`
+    }
   }
 
   function goToSectionId(num) {
     mySlider.go(num)
-  }
-
-  function initImage() {
-    image.style.transition = `${delay / 1000}s ${easing}`
   }
 </script>
 
@@ -98,7 +106,7 @@
   <Header handler={goToSectionId} sections={sections}/>
 
   <main class="main">
-    <Splide aria-label="My Favorite Images" class='slider' bind:this={ mySlider }
+    <Splide class='slider' bind:this={ mySlider }
     options={{
       direction: 'ttb',
       speed: delay,
@@ -120,9 +128,9 @@
         touch: 20,
       },
       wheelMinThreshold: 10
-      // drag   : 'free',
     }}
     on:move={imageHandler}
+   
     >
 
     <SplideSlide>
@@ -162,13 +170,13 @@
 
   </Splide>
 
-  <!-- <div class="image {blockActiveId ? 'image__first' : ''}" bind:this={image} style="{`${delay / 1000}s ${easing}`}">
+  <div class="image {!blockActiveId ? 'image__first' : ''} {imageisShow ? 'image--show' : ''}" bind:this={image} >
     <div class="image__wrapper">
       {#each blocks as el, i}
         <img class="image__inner {blockActiveId == i ? 'image--active' : ''}" src={el.src} alt="image {i}">
       {/each}
     </div>
-  </div> -->
+  </div>
   </main> 
   <!-- <Footer/> -->
 </div>
@@ -205,38 +213,55 @@
 
   .image {
     position: fixed;
-    top: 200vh;
+    top: 150vh;
     left: 50px;
-    transform: translateY(calc(50vh - 50%));
+    transform: translateY(-50%);
     width: 100%;
     aspect-ratio: 1.5/1;
     pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+
 
     @include media-breakpoint-up(xl) {
+      transform: translateY(-50%);
       max-width: 580px;
     }
 
     @include media-breakpoint-between(lg, xl) {
+      transform: translateY(-50%);
       max-width: 400px;
     }
 
     @include media-breakpoint-between(md, lg) {
+      transform: translateY(-50%);
       left: 30px;
       max-width: 380px;
     }
 
     @include media-breakpoint-down(md) {
-      transform: translateY(calc(170px)) translateX(-50%);
+      transform: translateY(-50%) translateX(-50%);
       left: 50%;
       max-width: 450px;
     }
 
+    &--show {
+      opacity: 1;
+      visibility: visible;
+
+      @include media-breakpoint-up(md) {
+        transform: translateY(-50%);
+      }
+
+      @include media-breakpoint-down(md) {
+        transform: translateY(-100%) translateX(-50%);
+      }
+    }
+
     &__first {
       @include media-breakpoint-down(md) {
-      transform: translateY(calc(90px)) translateX(-50%);
-      left: 50%;
-      max-width: 450px;
-    }
+        transform: translateY(-65%) translateX(-50%);
+      }
     }
     
     &__wrapper {

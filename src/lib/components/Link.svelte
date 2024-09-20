@@ -57,7 +57,7 @@
     }
 
     &__text {
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-up(md) {
         font-size: 30px;
       }
 

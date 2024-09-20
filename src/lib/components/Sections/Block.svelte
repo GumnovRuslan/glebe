@@ -5,15 +5,12 @@
   export let id = null
 </script>
 
-<section class="block {active ? 'block--active' : ''}">
+<section class="block ">
   {#if id == 0}
       <h2 class="block__title">What makes our project stand out?</h2>
   {/if}
   <div class="block__inner">
-    <div class="block__image {active ? 'block__image--active' : ''}">
-      <img src="/images/image2.webp" alt="">
-    </div>
-    <div class="block__content">
+    <div class="block__content {active ? 'block__content--active' : ''}" >
       <div class="block__card">
         <p class="block__card_title">{title}</p>
         <p class="block__card_text">{description}</p>
@@ -25,34 +22,33 @@
 <style lang="scss">
   @import '/static/styles/mixins.scss';
   .block {
-    opacity: 0.2;
     transition: 0.5s 0.3s;
     color: #fff;
+    height: 100%;
+    
 
-    &--active {
-      opacity: 1;
+    @include media-breakpoint-up(xxl) {
+      min-height: 600px;
+    }
+
+    @include media-breakpoint-between(xl, xxl) {
+      height: 600px;
+    }
+
+    @include media-breakpoint-down(md) {
+      height: 100vh;
+      padding-bottom: 20px;
     }
 
     &__inner {
       display: flex;
-      align-items: flex-end;
       align-items: center;
       gap: 30px;
       height: 100%;
+      flex: content;
 
       @include media-breakpoint-down(md) {
         flex-direction: column;
-      }
-    }
-
-    &__image {
-      max-width: 600px;
-      aspect-ratio: 1/1;
-      opacity: 0;
-      transition: 0.5s 0.5s;
-
-      &--active {
-        opacity: 1;
       }
     }
 
@@ -60,9 +56,12 @@
       width: 100%;
       font-size: 46px;
       text-align: center;
-      text-align: center;
       color: #fff;
-      margin-bottom: 50px;
+
+      @include media-breakpoint-up(md) {
+        margin-top: -80px;
+        margin-bottom: 80px;
+      }
 
       @include media-breakpoint-between(sm, md) {
         font-size: 30px;
@@ -70,6 +69,7 @@
 
       @include media-breakpoint-down(md) {
         font-size: 30px;
+        margin-bottom: -60px;
       }
     }
 
@@ -77,9 +77,28 @@
       flex: content;
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      opacity: 0.2;
+      transition: 0.4s;
+
+      @include media-breakpoint-up(xxl) {
+        min-height: 400px;
+      }
+
+      @include media-breakpoint-between(xl, xxl) {
+        min-height: 400px;
+      }
+
+      @include media-breakpoint-between(lg, xl) {
+        min-height: 300px;
+      }
 
       @include media-breakpoint-down(md) {
         align-items: flex-end;
+      }
+
+      &--active {
+        opacity: 1;
       }
     }
 
@@ -94,9 +113,13 @@
         max-width: 40vw;
       }
 
-      @include media-breakpoint-down(xl) {
+      @include media-breakpoint-between(sm, xl) {
         flex-direction: column;
-        gap: 20px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        gap: 15px;
       }
     }
 
@@ -123,9 +146,12 @@
         font-size: 30px;
       }
 
-      @include media-breakpoint-down(md) {
-        text-align: center;
-        font-size: 26px;
+      @include media-breakpoint-between(sm, md) {
+        font-size: 34px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 28px;
       }
     }
 
@@ -153,11 +179,17 @@
         line-height: 30px;
       }
 
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-between(sm, md) {
         text-align: justify;
         max-width: 100%;
-        font-size: 24px;
+        font-size: 26px;
         line-height: 28px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        text-align: justify;
+        font-size: 22px;
+        line-height: 25px;
       }
     }
   }

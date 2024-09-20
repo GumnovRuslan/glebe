@@ -46,6 +46,14 @@
         &::before, 
         &::after {
           width: 200px;
+
+          @include media-breakpoint-up(md) {
+            width: 200px;
+          }
+
+          @include media-breakpoint-down(md) {
+            width: 100px;
+          }
         }
       }
 

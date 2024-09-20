@@ -50,7 +50,7 @@
     {name: 'Contact', id: 10}
   ]
 
-  const delay = 600
+  const delay = 700
   const easing = 'ease-in-out'
 
   let slideActiveId = 0

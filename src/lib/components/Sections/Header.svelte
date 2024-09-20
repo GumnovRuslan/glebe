@@ -80,14 +80,15 @@
 
       @include media-breakpoint-down(lg) {
         position: absolute;
-        transition: 0.3s;
-        top: 100%;
+        z-index: -1;
+        transition: 0.4s ease-in-out;
+        top: 0%;
         left: 100%;
         height: 100vh;
-        background: #00000000;
+        background: #0000007e;
         flex-direction: column;
         gap: 15px;
-        padding: 40px 20px;
+        padding: 120px 20px 40px;
         backdrop-filter: blur(10px);
       }
 

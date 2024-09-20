@@ -19,11 +19,15 @@
 <style lang="scss">
 @import '/static/styles/mixins.scss';
 .card {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   cursor: pointer;
+
   &:hover {
     .card__inner {
       transform: rotateX(180deg);
@@ -48,13 +52,20 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 25px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 30px;
     background: #222;
     color: #fff;
     overflow: hidden;
+
+    @include media-breakpoint-up(sm) {
+      padding: 25px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 25px 15px;
+    }
   }
 
   &__front {
@@ -66,19 +77,48 @@
   &__back {
     display: flex;
     flex-direction: column;
-    gap: 40px;
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
+
+    @include media-breakpoint-up(lg) {
+      gap: 30px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      gap: 20px;
+    }
   }
   
   &__title {
-    font-size: 35px;
     text-align: center;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 35px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      font-size: 26px;
+    }
   }
 
   &__text {
-    font-size: 26px;
-    line-height: 30px;
+    @include media-breakpoint-up(lg) {
+      font-size: 26px;
+      line-height: 30px;
+      letter-spacing: 1px;
+    }
+
+    @include media-breakpoint-between(sm, lg) {
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0.5px;
+    }
   }
 }
 </style>

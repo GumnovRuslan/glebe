@@ -20,22 +20,35 @@
 <style lang="scss">
   @import '/static/styles/mixins.scss';
   .contact {
-    // padding: 90px 50px;
     height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
 
     &__inner {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      height: 100%;
+
+      @include media-breakpoint-up(md) {
+        gap: 100px;
+      }
+      @include media-breakpoint-down(md) {
+        align-items: center;
+        gap: 60px;
+      }
     }
 
     &__content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 20px;
       height: 100%;
+
+      @include media-breakpoint-up(md) {
+        gap: 20px;
+      }
     }
   }
 

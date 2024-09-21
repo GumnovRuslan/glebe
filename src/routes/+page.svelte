@@ -77,7 +77,6 @@
     : (index - startId > blocks.length) 
     ? blocks.length-1 
     : index - startId
-    console.log(blockActiveId)
     chandeHeigth(index, startId, endId)
   }
 

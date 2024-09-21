@@ -1,7 +1,6 @@
 <script>
   export let front = {src: '', title: ''}
   export let back = {title: '', text: ''}
-
 </script>
 
 <div class="card">
@@ -85,7 +84,7 @@
     }
 
     @include media-breakpoint-down(lg) {
-      gap: 20px;
+      gap: 15px;
     }
   }
   
@@ -97,7 +96,7 @@
     }
 
     @include media-breakpoint-down(lg) {
-      font-size: 26px;
+      font-size: 34px;
     }
   }
 
@@ -115,8 +114,8 @@
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 22px;
+      line-height: 24px;
       letter-spacing: 0.5px;
     }
   }

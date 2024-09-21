@@ -14,9 +14,7 @@
       <div>
         <Splide class='slider' 
           options={{
-            // speed: 300,
             autoHeight: true,
-            // autoWidth: true,
             height   : '600px',
             padding: '50px',
             gap: '10px',
@@ -44,13 +42,9 @@
                 perPage: 1,
                 height   : '500px',
               },
-              // 768: {
-              //   padding: '15px',
-              //   perPage: 1.5,
-              //   height   : '500px',
-              // },
               560: {
-                padding: '10px',
+                gap: '10px',
+                padding: '30px',
                 perPage: 1,
                 height   : '500px',
               }
@@ -82,7 +76,7 @@
           <SplideSlide>
             <RolesCard 
               front={{src: '/images/roles/LandLord.png', title: 'IslandLord'}} 
-              back={{title: 'Digger', text: `IslandLord owns entire islands that can be rented out or used to create large events and activities within the game. This is the most elite role with great passive income opportunities. By owning an island through NFT, IslandLord controls large tracts of virtual real estate, which creates additional demand among players.`}}
+              back={{title: 'IslandLord', text: `IslandLord owns entire islands that can be rented out or used to create large events and activities within the game. This is the most elite role with great passive income opportunities. By owning an island through NFT, IslandLord controls large tracts of virtual real estate, which creates additional demand among players.`}}
             />
           </SplideSlide>
         </Splide>

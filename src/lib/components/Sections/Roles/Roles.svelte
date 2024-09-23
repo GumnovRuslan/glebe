@@ -15,25 +15,29 @@
         <Splide class='slider' 
           options={{
             autoHeight: true,
-            height   : '600px',
-            padding: '50px',
-            gap: '10px',
+            height   : '500px',
+            padding: '30px',
+            // gap: '10px',
             arrows: false,
             pagination: false,
             perPage: 4,
             breakpoints: {
-              1640: {
-                padding: '35px',
-                perPage: 3,
-                height   : '600px',
+              // 1640: {
+              //   padding: '35px',
+              //   perPage: 3,
+              //   height   : '600px',
+              // },
+              1440: {
+                perPage: 4,
+                height: '500px',
               },
               1280: {
                 padding: '30px',
-                perPage: 2,
-                height   : '600px',
+                perPage: 3,
+                height   : '450px',
               },
               1024: {
-                padding: '25px',
+                padding: '50px',
                 perPage: 2,
                 height   : '500px',
               },

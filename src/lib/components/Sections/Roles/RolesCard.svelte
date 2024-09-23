@@ -1,9 +1,11 @@
 <script>
   export let front = {src: '', title: ''}
   export let back = {title: '', text: ''}
+
+  let isOpen = false 
 </script>
 
-<div class="card">
+<button type="button" class="card {isOpen && 'card--active'}" on:click={() => isOpen = !isOpen}>
   <div class="card__inner">
     <div class="card__side card__front" style="background-image: url({front.src})">
       <h3 class="card__title">{front.title}</h3>
@@ -13,7 +15,7 @@
       <p class="card__text">{back.text}</p>
     </div>
   </div>
-</div>
+</button>
 
 <style lang="scss">
 @import '/static/styles/mixins.scss';
@@ -21,16 +23,29 @@
   padding: 10px;
   width: 100%;
   height: 100%;
+  border: none;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   cursor: pointer;
+  background: transparent;
 
   &:hover {
-    .card__inner {
-      transform: rotateX(180deg);
-      -webkit-transform: rotateX(180deg);
+    @include media-breakpoint-up(lg) {
+      .card__inner {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &--active {
+    @include media-breakpoint-down(lg) {
+      .card__inner {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+      }
     }
   }
 
@@ -59,7 +74,7 @@
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
-      padding: 25px;
+      padding: 20px 15px;
     }
 
     @include media-breakpoint-down(sm) {
@@ -80,7 +95,7 @@
     transform: rotateX(180deg);
 
     @include media-breakpoint-up(lg) {
-      gap: 30px;
+      gap: 20px;
     }
 
     @include media-breakpoint-down(lg) {
@@ -101,10 +116,16 @@
   }
 
   &__text {
-    @include media-breakpoint-up(lg) {
-      font-size: 26px;
-      line-height: 30px;
-      letter-spacing: 1px;
+    @include media-breakpoint-up(xl) {
+      font-size: 22px;
+      line-height: 28px;
+      text-align: justify;
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+      font-size: 20px;
+      line-height: 24px;
+      text-align: justify;
     }
 
     @include media-breakpoint-between(sm, lg) {

@@ -10,9 +10,9 @@
   <div class="contact__inner">
     <Title text="Contact us" {active}/>
     <div class="contact__content">
-      <Link icon={telegram} text='https://t.me/glebecommunity' href="https://t.me/glebecommunity"/>
-      <Link icon={twiter} text='https://x.com/GlebeComm' href="https://x.com/GlebeComm"/>
-      <Link icon={email} text='mailto:info@glebe.online' href="mailto:info@glebe.online"/>
+      <Link icon={telegram} text='t.me/glebecommunity' href="https://t.me/glebecommunity"/>
+      <Link icon={twiter} text='x.com/GlebeComm' href="https://x.com/GlebeComm"/>
+      <Link icon={email} text='info@glebe.online' href="mailto:info@glebe.online"/>
     </div>
   </div>
 </section>

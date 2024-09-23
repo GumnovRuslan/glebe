@@ -54,28 +54,28 @@
           >
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/Digger.png', title: 'Digger'}} 
+              front={{src: '/images/roles/Digger2.png', title: 'Digger'}} 
               back={{title: 'Digger', text: `Players who have chosen this role go on expeditions to various lands to mine for gold. Each new exploration or mining attempt can result in a large “catch” - digital gold that can be sold on the game's internal market for cryptocurrency. This is an active role where success depends on the ability to find profitable areas and choose the right tools.`}}
             />
           </SplideSlide>
           
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/LandLord.png', title: 'LandLord'}} 
+              front={{src: '/images/roles/LandLord2.png', title: 'LandLord'}} 
               back={{title: 'LandLord', text: `LandLord owns parcels of land that can be leased to gold miners. Land ownership is secured through NFTs, which are unique assets with real value. The better the parcel of land, the more profit can be gained for the lease. In this way, LandLord earns passive income without directly participating in mining.`}}
             />
           </SplideSlide>
   
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/ToolLord.png', title: 'ToolLord'}} 
+              front={{src: '/images/roles/ToolLord2.png', title: 'ToolLord'}} 
               back={{title: 'ToolLord', text: `ToolLord invests in equipment and tools that are vital to gold miners. Players can rent these tools for mining, and ToolLord receives a steady rental income. Like land, the tools are NFTs, providing the owner with ownership of a unique digital asset.`}}
             />
           </SplideSlide>
   
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/LandLord.png', title: 'IslandLord'}} 
+              front={{src: '/images/roles/IslandLord2.png', title: 'IslandLord'}} 
               back={{title: 'IslandLord', text: `IslandLord owns entire islands that can be rented out or used to create large events and activities within the game. This is the most elite role with great passive income opportunities. By owning an island through NFT, IslandLord controls large tracts of virtual real estate, which creates additional demand among players.`}}
             />
           </SplideSlide>

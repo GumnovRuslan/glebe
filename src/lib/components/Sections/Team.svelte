@@ -8,8 +8,11 @@
   </div>
   <div class="team__content">
     <div class="team__content_inner">
-      <p class="team__title">Gameplay:</p>
-      <p class="team__text">Glebe transports players to an immersive gold rush universe where each participant chooses their unique role and interacts with in-game assets to generate cryptocurrency profits. Players can become explorers, landlords or large-scale owners, creating a unique ecosystem where the economy is player-driven and hardened by real value through NFT.</p>
+      <p class="team__title">Team with long experience</p>
+      <div class="team__text">
+        <p><span class="team__text_title">Experience:</span> Our team consists of industry professionals with more than 12 years of experience in game development, as well as participation in successful projects for social networks, mobile platforms and PC.</p>
+        <p><span class="team__text_title">Key contributors:</span> Key contributors: Programmers, game designers, artists, blockchain specialists and QA who will ensure high performance and game security for many years.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -70,6 +73,9 @@
     }
 
     &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       color: #ffffff;
 
       @include media-breakpoint-up(md) {

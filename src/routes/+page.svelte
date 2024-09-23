@@ -41,11 +41,11 @@
   ]
 
   const sections = [
-    {name: 'Hero', id: 0}, 
+    // {name: 'Hero', id: 0}, 
     {name: 'About', id: 1}, 
     {name: 'Gameplay', id: 2}, 
     {name: 'Roles', id: 3}, 
-    {name: 'DFifferences', id: 4},
+    {name: 'Differences', id: 4},
     {name: 'Team', id: 9},
     {name: 'Contact', id: 10}
   ]
@@ -141,7 +141,7 @@
     </SplideSlide>
 
     <SplideSlide>
-      <Text bgImage='/image' title='' text=''/>
+      <Text/>
     </SplideSlide>
 
     <SplideSlide>
@@ -160,7 +160,7 @@
     {/each}
 
     <SplideSlide>
-      <Team title='title' text='text'/>
+      <Team/>
     </SplideSlide>
 
     <SplideSlide>
@@ -194,19 +194,19 @@
     position: relative;
 
     @include media-breakpoint-up(xl) {
-      padding: 90px 50px;
+      padding: 90px 50px 50px;
     } 
 
     @include media-breakpoint-between(lg, xl) {
-      padding: 90px 40px;
+      padding: 90px 40px 50px;
     } 
 
     @include media-breakpoint-between(md, lg) {
-      padding: 90px 30px;
+      padding: 90px 30px 50px;
     } 
 
     @include media-breakpoint-down(md) {
-      padding: 90px 15px;
+      padding: 90px 15px 50px;
     } 
   } 
 

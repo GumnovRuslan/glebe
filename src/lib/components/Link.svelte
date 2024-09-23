@@ -4,7 +4,7 @@
   export let href = '#'
 </script>
 
-<a {href} class="link">
+<a {href} class="link" target="_blank">
   {#if icon}
     <span class="link__icon">{@html icon}</span>
   {/if}

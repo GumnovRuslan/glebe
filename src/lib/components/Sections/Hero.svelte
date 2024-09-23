@@ -11,6 +11,7 @@
 </section>
 
 <style lang="scss">
+  // @import '/static/styles/mixins.scss';
   .hero {
     position: relative;
     min-height: 100vh;
@@ -25,7 +26,11 @@
       // flex-direction: column;
       align-items: flex-end;
       justify-content: center;
-      padding: 90px 20px;
+      padding: 90px 20px 50px;
+
+      // @include media-breakpoint-down(md) {
+      //   padding: 20px;
+      // }
     }
 
     &__sections {
@@ -44,7 +49,7 @@
       color: #ffffff;
       text-shadow: 0 0 10px #000;
       text-align: center;
-      padding-bottom: 50px;
+      padding-bottom: 0px;
     }
 
     &__background {
@@ -58,6 +63,7 @@
 
     &__background_img {
       object-fit: cover;
+      object-position: 45% 100%;
     }
   }
 </style>

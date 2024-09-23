@@ -18,7 +18,7 @@
 
 <header class="header">
   <div class="header__inner">
-    <span class="header__logo">glebe</span>
+    <a href="/" class="header__logo">glebe</a>
     <nav class="header__nav_list {isOpen ? 'header__nav_list--active' : ''}">
       {#each sections as section}
         <button type="button" class="header__nav_item" on:click={() => clickMenu(section.id)}>{section.name}</button>
@@ -60,6 +60,7 @@
       font-size: 40px;
       letter-spacing: 3px;
       text-transform: uppercase;
+      text-decoration: none;
       color: #fff;
 
       @include media-breakpoint-down(lg) {

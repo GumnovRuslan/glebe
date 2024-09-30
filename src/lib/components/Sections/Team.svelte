@@ -4,7 +4,7 @@
 
 <section class="team">
   <div class="team__background">
-    <img class="team__background_img" src="/images/glebe_hp.webp" alt="background">
+    <img class="team__background_img" src="/images/team.webp" alt="background">
   </div>
   <div class="team__content">
     <div class="team__content_inner">

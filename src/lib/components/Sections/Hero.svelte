@@ -3,7 +3,7 @@
 
 <section class="hero">
   <div class="hero__background">
-    <img class="hero__background_img" src="/images/Glebe_1.jpg" alt="background">
+    <img class="hero__background_img" src="/images/hero.webp" alt="background">
   </div>
   <div class="hero__content">
     <p class="hero__title">A game where every strike brings gold</p>

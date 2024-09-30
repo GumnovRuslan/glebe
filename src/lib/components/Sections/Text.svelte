@@ -4,7 +4,7 @@
 
 <section class="text">
   <div class="text__background">
-    <img class="text__background_img" src="/images/glebe_hp.webp" alt="background">
+    <img class="text__background_img" src="/images/gameplay.webp" alt="background">
   </div>
   <div class="text__content">
     <div class="text__content_wrapper">

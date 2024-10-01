@@ -16,27 +16,27 @@
     {
       title: 'Unique land exploration system:',
       description: 'Players can explore various lands and find areas with varying profitability, which creates constant dynamics and new opportunities in the gameplay.',
-      src: '/images/image1.png'
+      src: '/images/block/Unique-land_size.webp'
     },
     {
       title: 'Variety of ways for earning:',
       description: `Glebe offers the opportunity to build different business models, including earning without initial investment.`,
-      src: '/images/image2.webp'
+      src: '/images/block/Variety-of-ways_size.webp'
     },
     {
       title: 'Passive income through NFT ownership:',
       description: 'Owners of land and other in-game assets can earn a steady income by renting them out, allowing them to earn even without actively participating in the gameplay.',
-      src: '/images/image1.png'
+      src: '/images/block/Passive-income-through-NFT_size.webp'
     },
     {
       title: 'Deep integration of NFT with gameplay:',
       description: `Owners of lands, tools and islands don't just own digital assets - they manage assets that can generate real passive income through rentals and other in-game transactions. This makes the game's economy deeper and more dynamic, providing players real opportunities for long-term investment.`,
-      src: '/images/image2.webp'
+      src: '/images/block/Deep-integration-of-NFT_size.webp'
     },
     {
       title: 'Variety of game roles: ',
       description: 'Glebe offers the unique ability to choose multiple roles, each providing players with different ways of earning. Players can participate both actively (e.g. gold miners) and passively (asset owners), which appeals to different categories of users - from those looking for fun to those interested in passive income through NFT management.',
-      src: '/images/image1.png'
+      src: '/images/block/Variety-of-game-roles_size.webp'
     },
   ]
 
@@ -62,7 +62,6 @@
   let arrHeight = []
 
   onMount(() => {
-    // console.log(mySlider)
     image.style.transition = `${delay / 1000}s ${easing}`
     arrHeight = mySlider.splide.Components.Elements.slides.map(slide => slide.scrollHeight)
   })

@@ -11,7 +11,7 @@
       <p class="team__title">Team with long experience</p>
       <div class="team__text">
         <p><span class="team__text_title">Experience:</span> Our team consists of industry professionals with more than 12 years of experience in game development, as well as participation in successful projects for social networks, mobile platforms and PC.</p>
-        <p><span class="team__text_title">Key contributors:</span> Key contributors: Programmers, game designers, artists, blockchain specialists and QA who will ensure high performance and game security for many years.</p>
+        <p><span class="team__text_title">Key contributors:</span>Programmers, game designers, artists, blockchain specialists and QA who will ensure high performance and game security for many years.</p>
       </div>
     </div>
   </div>

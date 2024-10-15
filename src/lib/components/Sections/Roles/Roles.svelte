@@ -17,16 +17,10 @@
             autoHeight: true,
             height   : '500px',
             padding: '30px',
-            // gap: '10px',
             arrows: false,
             pagination: false,
             perPage: 4,
             breakpoints: {
-              // 1640: {
-              //   padding: '35px',
-              //   perPage: 3,
-              //   height   : '600px',
-              // },
               1440: {
                 perPage: 4,
                 height: '500px',

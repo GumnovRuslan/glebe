@@ -11,36 +11,23 @@
 </section>
 
 <style lang="scss">
-  // @import '/static/styles/mixins.scss';
+  @import '/static/styles/mixins.scss';
   .hero {
     position: relative;
     min-height: 100vh;
 
     &__content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: relative;
       display: flex;
-      // flex-direction: column;
-      align-items: flex-end;
       justify-content: center;
-      padding: 90px 20px 50px;
 
-      // @include media-breakpoint-down(md) {
-      //   padding: 20px;
-      // }
-    }
+      @include media-breakpoint-up(sm) {
+        padding: 90px 0 50px;
+      }
 
-    &__sections {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 300px;
-      background: #00000088;
-      border-radius: 20px;
-      padding: 15px;
+      @include media-breakpoint-down(sm) {
+        padding: 60px 0 50px;
+      }
     }
 
     &__title {
@@ -49,7 +36,7 @@
       color: #ffffff;
       text-shadow: 0 0 10px #000;
       text-align: center;
-      padding-bottom: 0px;
+      // padding-top: 5%;    
     }
 
     &__background {
@@ -58,12 +45,11 @@
       top: 0;
       width: 100%;
       height: 100%;
-      min-height: 100vh;
     } 
 
     &__background_img {
       object-fit: cover;
-      object-position: 45% 100%;
+      object-position: 50% 100%;
     }
   }
 </style>

@@ -17,7 +17,6 @@
   }
 
   .title {
-      width: max-content;
       position: relative;
       text-align: center;
       font-size: 50px;
@@ -59,18 +58,22 @@
 
       @include media-breakpoint-up(xl) {
         font-size: 50px;
+        line-height: 54px;
       }
 
       @include media-breakpoint-between(lg, xl) {
         font-size: 40px;
+        line-height: 44px;
       }
 
       @include media-breakpoint-between(md, lg) {
         font-size: 30px;
+        line-height: 34px;
       }
 
       @include media-breakpoint-down(md) {
         font-size: 26px;
+        line-height: 30px;
       }
     }
 </style>

@@ -13,11 +13,14 @@
 </script>
 
 <button type="button" class="burger {!isVisable ? 'burger--hidden' : ''}" on:click={toggleMenu}>
-  <div class="burger__line"></div>
+  <div class="burger__line {isActive ? 'burger__line--active' : ''}"></div>
 </button>
 
 <style lang="scss">
   @import '/static/styles/mixins.scss';
+
+  $transition: 0.2s;
+
   .burger {
     width: max-content;
     display: flex;
@@ -28,7 +31,7 @@
     border: none;
     cursor: pointer;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       display: none;
     }
 
@@ -38,6 +41,7 @@
       height: 3px;
       background: #fff;
       border-radius: 20px;
+      transition: $transition;
 
       &::after, 
       &::before {
@@ -48,6 +52,7 @@
         height: 100%;
         background: #fff;
         border-radius: 20px;
+        transition: top $transition*2 $transition, transform $transition;
       }
 
       &::before {
@@ -56,6 +61,24 @@
 
       &::after {
         top: 12px;
+      }
+
+      &--active {
+        background: transparent;
+
+        &::after,
+        &::before {
+          top: 0;
+          transition: top $transition, transform $transition*2 $transition;
+        }
+
+        &::after {
+          transform: rotate(45deg);
+        }
+
+        &::before {
+          transform: rotate(-45deg);
+        }
       }
     }
   }

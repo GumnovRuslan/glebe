@@ -117,13 +117,13 @@
 
   &__text {
     @include media-breakpoint-up(xl) {
-      font-size: 22px;
-      line-height: 28px;
+      font-size: 20px;
+      line-height: 24px;
       text-align: justify;
     }
 
     @include media-breakpoint-between(lg, xl) {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 24px;
       text-align: justify;
     }

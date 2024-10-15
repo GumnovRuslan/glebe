@@ -115,6 +115,7 @@
 
       @include media-breakpoint-between(sm, xl) {
         flex-direction: column;
+        width: 500px;
       }
 
       @include media-breakpoint-down(sm) {
@@ -140,18 +141,22 @@
 
       @include media-breakpoint-between(lg, xl) {
         font-size: 30px;
+        margin-bottom: 10px;
       }
 
       @include media-breakpoint-between(md, lg) {
         font-size: 30px;
+        margin-bottom: 10px;
       }
 
       @include media-breakpoint-between(sm, md) {
         font-size: 34px;
+        margin-bottom: 10px;
       }
 
       @include media-breakpoint-down(sm) {
         font-size: 28px;
+        margin-bottom: 10px;
       }
     }
 
@@ -188,7 +193,7 @@
 
       @include media-breakpoint-down(sm) {
         text-align: justify;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 25px;
       }
     }

@@ -45,11 +45,11 @@
       gap: 50px;
       min-height: 60px;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         padding: 10px 40px;
       }
 
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(xl) {
         justify-content: space-between;
         padding: 10px 10px;
       }
@@ -75,11 +75,12 @@
       align-items: center;
       gap: 30px;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         justify-content: center;
+        margin-left: -200px;
       }
 
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(xl) {
         position: absolute;
         z-index: -1;
         transition: 0.4s ease-in-out;
@@ -94,7 +95,7 @@
       }
 
       &--active {
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
           left: 0;
         }
       }
@@ -111,6 +112,7 @@
       max-width: max-content;
       padding: 0;
       overflow: hidden;
+      text-shadow: 0 0 4px #000;
 
       @include media-breakpoint-down(lg) {
         font-size: 30px;

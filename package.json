@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "vite build && vite preview",
 		"test": "playwright test",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."

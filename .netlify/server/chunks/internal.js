@@ -115,7 +115,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\r\n<html lang="en">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\r\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n		<link rel="stylesheet" href="/styles/reset.css">\r\n		<link rel="stylesheet" href="/styles/root.css">\r\n		<link href="https://fonts.googleapis.com/css?family=Nerko+One:regular" rel="stylesheet" />\r\n		' + head + '\r\n	</head>\r\n	<body data-sveltekit-preload-data="hover">\r\n		<div style="display: contents; font-family: Nerko One;">' + body + "</div>\r\n	</body>\r\n</html>\r\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\r\n<html lang="en">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n		<link rel="icon" href="' + assets2 + '/favicon.ico" />\r\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n		<!-- <link rel="stylesheet" href="/styles/template/reset.scss"/>\r\n		<link rel="stylesheet" href="/styles/template/root.scss"/>\r\n		<link rel="stylesheet" href="/styles/template/fonts.scss"/> -->\r\n		<link rel="stylesheet" href="/styles/styles.css">\r\n		<!-- <link href="https://fonts.googleapis.com/css?family=Nerko+One:regular" rel="stylesheet" /> -->\r\n		' + head + '\r\n	</head>\r\n	<body data-sveltekit-preload-data="hover" style="position: fixed;">\r\n		<div style="display: contents; font-family: glebe;">' + body + "</div>\r\n	</body>\r\n</html>\r\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -187,7 +187,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "weysr8"
+  version_hash: "1tzm4u1"
 };
 async function get_hooks() {
   return {};

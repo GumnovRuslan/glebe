@@ -66,21 +66,20 @@
   
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/toolLord.webp', title: 'ToolLord'}} 
-              back={{title: 'ToolLord', text: `ToolLord invests in equipment and tools that are vital to gold miners. Players can rent these tools for mining, and ToolLord receives a steady rental income. Like land, the tools are NFTs, providing the owner with ownership of a unique digital asset.`}}
+              front={{src: '/images/roles/Craftsman.webp', title: 'Craftsman'}} 
+              back={{title: 'Craftsman', text: `Craftsman invests in equipment and tools that are vital to gold miners. Players can rent these tools for mining, and Craftsman receives a steady rental income. Like land, the tools are NFTs, providing the owner with ownership of a unique digital asset.`}}
             />
           </SplideSlide>
   
           <SplideSlide>
             <RolesCard 
-              front={{src: '/images/roles/islandLord.webp', title: 'IslandLord'}} 
-              back={{title: 'IslandLord', text: `IslandLord owns entire islands that can be rented out or used to create large events and activities within the game. This is the most elite role with great passive income opportunities. By owning an island through NFT, IslandLord controls large tracts of virtual real estate, which creates additional demand among players.`}}
+              front={{src: '/images/roles/Glebarch.webp', title: 'Glebarch'}} 
+              back={{title: 'Glebarch', text: `Glebarch owns entire islands that can be rented out or used to create large events and activities within the game. This is the most elite role with great passive income opportunities. By owning an island through NFT, Glebarch controls large tracts of virtual real estate, which creates additional demand among players.`}}
             />
           </SplideSlide>
         </Splide>
       </div>
     </div>
-    
     
   </div>
 </section>
